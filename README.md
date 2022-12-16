@@ -1,6 +1,6 @@
 # mvv_tracker
 
-Track your favorite mvv stops
+Track your favorite mvv stops.
 
 ## Getting Started
 

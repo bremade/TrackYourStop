@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mvv.tracker.mvv_tracker">
+    package="com.tracker.mvv_tracker">
    <application
         android:label="mvv_tracker"
         android:name="${applicationName}"
