@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:mvv_tracker/constants/colors.dart';
+import 'package:mvv_tracker/utils/logger.dart';
 
-final immichThemeProvider = StateProvider<ThemeMode>((ref) {
+final ThemeProvider = StateProvider<ThemeMode>((ref) {
+  final logger = getLogger("ThemeProvider");
   var themeMode = "dark"; // TODO: Make this configurable
 
-  debugPrint("Current themeMode $themeMode");
+  logger.d("Current themeMode $themeMode");
 
   if (themeMode == "light") {
     return ThemeMode.light;
@@ -17,7 +20,7 @@ final immichThemeProvider = StateProvider<ThemeMode>((ref) {
   }
 });
 
-ThemeData immichDarkTheme = ThemeData(
+ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   brightness: Brightness.dark,
   primarySwatch: Colors.indigo,
@@ -74,7 +77,7 @@ ThemeData immichDarkTheme = ThemeData(
   ),
 );
 
-ThemeData immichLightTheme = ThemeData(
+ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   brightness: Brightness.light,
   primarySwatch: Colors.indigo,

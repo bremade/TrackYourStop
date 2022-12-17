@@ -10,7 +10,7 @@ import 'package:logger/logger.dart';
 import 'package:mvv_tracker/routing/router.dart';
 import 'package:mvv_tracker/routing/tab_navigation_observer.dart';
 import 'package:mvv_tracker/shared/provider/app_state.provider.dart';
-import 'package:mvv_tracker/utils/logger.util.dart';
+import 'package:mvv_tracker/utils/logger.dart';
 import 'package:mvv_tracker/utils/app_theme.dart';
 
 void main() {
@@ -68,7 +68,7 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp> wit
 
   @override
   Widget build(BuildContext context) {
-    final _router = AppRouter();
+    final router = AppRouter();
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -77,11 +77,11 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp> wit
           MaterialApp.router(
             title: 'Haltestellen Tracker',
             debugShowCheckedModeBanner: false,
-            themeMode: ref.watch(immichThemeProvider),
-            darkTheme: immichDarkTheme,
-            theme: immichLightTheme,
-            routeInformationParser: _router.defaultRouteParser(),
-            routerDelegate: _router.delegate(
+            themeMode: ref.watch(ThemeProvider),
+            darkTheme: darkTheme,
+            theme: lightTheme,
+            routeInformationParser: router.defaultRouteParser(),
+            routerDelegate: router.delegate(
               navigatorObservers: () => [TabNavigationObserver(ref: ref)],
             ),
           ),

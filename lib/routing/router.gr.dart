@@ -17,10 +17,10 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
+    DepartureRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const HomePage(),
+        child: const DeparturePage(),
       );
     }
   };
@@ -28,20 +28,20 @@ class _$AppRouter extends RootStackRouter {
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          HomeRoute.name,
+          DepartureRoute.name,
           path: '/',
         )
       ];
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute()
+/// [DeparturePage]
+class DepartureRoute extends PageRouteInfo<void> {
+  const DepartureRoute()
       : super(
-          HomeRoute.name,
+          DepartureRoute.name,
           path: '/',
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'DepartureRoute';
 }
