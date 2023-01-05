@@ -1,0 +1,1702 @@
+[
+  {
+    "type": "STATION",
+    "latitude": 48.14003,
+    "longitude": 11.56107,
+    "place": "München",
+    "name": "Hauptbahnhof",
+    "globalId": "de:09162:6",
+    "divaId": 6,
+    "hasZoomData": true,
+    "transportTypes": [
+      "UBAHN",
+      "TRAM",
+      "SBAHN"
+    ],
+    "surroundingPlanLink": "HU",
+    "aliases": "Hbf München main station central station Muenchen Munchen HU HO HUHO",
+    "tariffZones": "m"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.14135,
+    "longitude": 11.55993,
+    "place": "München",
+    "name": "Hauptbahnhof Nord",
+    "globalId": "de:09162:7000",
+    "divaId": 7000,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS",
+      "TRAM"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Hbf Muenchen Munchen HBN",
+    "tariffZones": "m"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.13926,
+    "longitude": 11.55913,
+    "place": "München",
+    "name": "Hauptbahnhof Süd",
+    "globalId": "de:09162:5000",
+    "divaId": 5000,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS",
+      "TRAM"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Hbf Sued Sud Muenchen Munchen HBS",
+    "tariffZones": "m"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.17754,
+    "longitude": 11.2555,
+    "place": "Fürstenfeldbruck",
+    "name": "Hauptplatz",
+    "globalId": "de:09179:6260",
+    "divaId": 6260,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Fuerstenfeldbruck Furstenfeldbruck FFB",
+    "tariffZones": "2|3"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.24417,
+    "longitude": 11.1441,
+    "place": "Günzlhofen",
+    "name": "Hauptplatz",
+    "globalId": "de:09179:6296",
+    "divaId": 6296,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Guenzlhofen Gunzelhofen",
+    "tariffZones": "3|4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.5299,
+    "longitude": 11.50613,
+    "place": "Pfaffenhofen (Ilm)",
+    "name": "Hauptplatz",
+    "globalId": "de:09186:8749",
+    "divaId": 2508749,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.76164,
+    "longitude": 11.56187,
+    "place": "Bad Tölz",
+    "name": "Hauptpost",
+    "globalId": "de:09173:4948",
+    "divaId": 4948,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.3159,
+    "longitude": 11.55259,
+    "place": "Haimhausen",
+    "name": "Hauptstraße 24",
+    "globalId": "de:09174:6868",
+    "divaId": 6868,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "DAH",
+    "tariffZones": "2|3"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.23189,
+    "longitude": 11.6412,
+    "place": "Dirnismaning",
+    "name": "Hauptstraße 25",
+    "globalId": "de:09184:2056",
+    "divaId": 2056,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "1|2"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.13908,
+    "longitude": 11.55582,
+    "place": "München",
+    "name": "Holzkirchner Bahnhof",
+    "globalId": "de:09162:90",
+    "divaId": 90,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS",
+      "TRAM"
+    ],
+    "surroundingPlanLink": "HU",
+    "aliases": "Hbf Holzkirchner Bahnhof Hauptbahnhof Gl. 5-10 Muenchen Munchen HOB",
+    "tariffZones": "m"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.34373,
+    "longitude": 11.70941,
+    "place": "Achering",
+    "name": "Acheringer Hauptstraße",
+    "globalId": "de:09178:2871",
+    "divaId": 2871,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "strasse FS",
+    "tariffZones": "4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.81914,
+    "longitude": 11.32117,
+    "place": "Seeshaupt",
+    "name": "Bad Lido",
+    "globalId": "de:09190:90131",
+    "divaId": 4713,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.1833,
+    "longitude": 11.27176,
+    "place": "Emmering (Kr FFB)",
+    "name": "Emmering, Hauptstraße",
+    "globalId": "de:09179:6678",
+    "divaId": 6678,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Hölzl Hoelzl",
+    "tariffZones": "2"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.3105,
+    "longitude": 11.91898,
+    "place": "Erding",
+    "name": "Fliegerhorst Haupttor",
+    "globalId": "de:09177:3298",
+    "divaId": 3298,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "ED",
+    "tariffZones": "4|5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.18446,
+    "longitude": 11.97683,
+    "place": "Forstern (Obb.)",
+    "name": "Forstern, Hauptstraße",
+    "globalId": "de:09177:3352",
+    "divaId": 3352,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "ED",
+    "tariffZones": "4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.15478,
+    "longitude": 12.27691,
+    "place": "Gars am Inn",
+    "name": "Gars am Inn, Hauptschule",
+    "globalId": "de:09183:6049",
+    "divaId": 4106049,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.43325,
+    "longitude": 11.32534,
+    "place": "Gartelsried",
+    "name": "Gartelsried, Hauptstraße",
+    "globalId": "de:09174:7154",
+    "divaId": 7154,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "4|5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.36504,
+    "longitude": 11.64679,
+    "place": "Giggenhausen",
+    "name": "Giggenhausen, Hauptstraße",
+    "globalId": "de:09178:2780",
+    "divaId": 2780,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "3|4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.16006,
+    "longitude": 12.17436,
+    "place": "Haag (Obb.)",
+    "name": "Haag, Hauptschule",
+    "globalId": "de:09183:80610",
+    "divaId": 4180610,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.34786,
+    "longitude": 12.07648,
+    "place": "Inning am Holz",
+    "name": "Inning, Hauptstraße",
+    "globalId": "de:09177:3574",
+    "divaId": 3574,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "ED",
+    "tariffZones": "5|6"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.22492,
+    "longitude": 11.6735,
+    "place": "Ismaning",
+    "name": "Ismaning, Hauptstraße",
+    "globalId": "de:09184:2081",
+    "divaId": 2081,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "1"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.03056,
+    "longitude": 12.04615,
+    "place": "Jakobneuharting",
+    "name": "Jakobneuharting, Hauptstraße",
+    "globalId": "de:09175:4120",
+    "divaId": 4120,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.43326,
+    "longitude": 11.42536,
+    "place": "Jetzendorf (Obb.)",
+    "name": "Jetzendorf, Hauptstraße",
+    "globalId": "de:09186:8476",
+    "divaId": 7178,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "PAF",
+    "tariffZones": "4|5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.21724,
+    "longitude": 11.26135,
+    "place": "Maisach",
+    "name": "Maisach, Hauptstraße",
+    "globalId": "de:09179:6164",
+    "divaId": 6164,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "FFB",
+    "tariffZones": "2|3"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.22018,
+    "longitude": 11.25849,
+    "place": "Maisach",
+    "name": "Maisach, Mittelschule",
+    "globalId": "de:09179:6142",
+    "divaId": 6142,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Hauptschule FFB",
+    "tariffZones": "2|3"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.14029,
+    "longitude": 11.5596,
+    "place": "München",
+    "name": "München Hbf.",
+    "globalId": "de:09162:100",
+    "divaId": 100,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS",
+      "BAHN"
+    ],
+    "surroundingPlanLink": "HU",
+    "aliases": "Hauptbahnhof München main station central station Muenchen Munchen Starnberger Flügelbahnhof Gleis 5-36 MHBF",
+    "tariffZones": "m"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.24427,
+    "longitude": 11.15597,
+    "place": "Oberschweinbach",
+    "name": "Oberschweinbach, Hauptstraße",
+    "globalId": "de:09179:6297",
+    "divaId": 6297,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "FFB",
+    "tariffZones": "3|4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.30899,
+    "longitude": 11.19648,
+    "place": "Odelzhausen",
+    "name": "Odelzhausen, Hauptstraße",
+    "globalId": "de:09174:6862",
+    "divaId": 6862,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "DAH",
+    "tariffZones": "3|4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.20941,
+    "longitude": 11.33157,
+    "place": "Olching (Obb.)",
+    "name": "Olching, Hauptstraße",
+    "globalId": "de:09179:6793",
+    "divaId": 6793,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "FFB",
+    "tariffZones": "1|2"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.47713,
+    "longitude": 11.56377,
+    "place": "Paunzhausen",
+    "name": "Paunzhausen, Hauptstraße",
+    "globalId": "de:09178:2825",
+    "divaId": 2825,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "FS",
+    "tariffZones": "5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.77203,
+    "longitude": 11.37891,
+    "place": "Penzberg",
+    "name": "Roche Haupttor",
+    "globalId": "de:09190:41471",
+    "divaId": 1141471,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "6"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.20237,
+    "longitude": 11.32286,
+    "place": "Olching (Obb.)",
+    "name": "Roßhaupter Platz",
+    "globalId": "de:09179:6233",
+    "divaId": 6233,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Rosshaupter FFB",
+    "tariffZones": "1|2"
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.8326,
+    "longitude": 11.26489,
+    "place": "Schmitten (Seeshaupt)",
+    "name": "Schmitten, Abzw.",
+    "globalId": "de:09190:41548",
+    "divaId": 1141548,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Abzweigung",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.82278,
+    "longitude": 11.28704,
+    "place": "Seeshaupt",
+    "name": "Seeshaupt",
+    "globalId": "de:09190:41534",
+    "divaId": 4710,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS",
+      "BAHN"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Bahnhof Bf.",
+    "tariffZones": "5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.82368,
+    "longitude": 11.30066,
+    "place": "Seeshaupt",
+    "name": "Seeshaupt, Schule",
+    "globalId": "de:09190:41542",
+    "divaId": 4716,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": "5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.75764,
+    "longitude": 11.37126,
+    "place": "Penzberg",
+    "name": "Seeshaupter Str./Friedhof",
+    "globalId": "de:09190:41456",
+    "divaId": 1141456,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.76169,
+    "longitude": 11.3666,
+    "place": "Penzberg",
+    "name": "Seeshaupter Str./Hörbiger",
+    "globalId": "de:09190:41459",
+    "divaId": 1141459,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Horbiger Hoerbiger",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.0247,
+    "longitude": 11.99261,
+    "place": "Straußdorf",
+    "name": "Straußdorf, Hauptstraße",
+    "globalId": "de:09175:4253",
+    "divaId": 4253,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Straussdorf",
+    "tariffZones": "3|4"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.29126,
+    "longitude": 11.26346,
+    "place": "Sulzemoos",
+    "name": "Sulzemoos, Hauptstraße",
+    "globalId": "de:09174:6842",
+    "divaId": 6842,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "DAH",
+    "tariffZones": "2|3"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.06754,
+    "longitude": 11.32348,
+    "place": "Unterbrunn (Kr Starnberg)",
+    "name": "Unterbrunn, Hauptstraße",
+    "globalId": "de:09188:5631",
+    "divaId": 5631,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "STA",
+    "tariffZones": "1|2"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.40154,
+    "longitude": 11.74862,
+    "place": "Freising",
+    "name": "Untere Hauptstraße",
+    "globalId": "de:09178:2853",
+    "divaId": 2853,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "FS",
+    "tariffZones": "4|5"
+  },
+  {
+    "type": "STATION",
+    "latitude": 48.10765,
+    "longitude": 11.50224,
+    "place": "München",
+    "name": "Waldfriedhof Haupteingang",
+    "globalId": "de:09162:1462",
+    "divaId": 1462,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "Muenchen Munchen WFH",
+    "tariffZones": "m"
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.83271,
+    "longitude": 11.28094,
+    "place": "Seeshaupt",
+    "name": "Waldweg",
+    "globalId": "de:09190:49068",
+    "divaId": 1149068,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.85486,
+    "longitude": 11.98814,
+    "place": "Willing",
+    "name": "Willing, Hauptstraße",
+    "globalId": "de:09187:40925",
+    "divaId": 1140925,
+    "hasZoomData": false,
+    "transportTypes": [
+      "BUS"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "STATION",
+    "latitude": 47.82572,
+    "longitude": 11.30394,
+    "place": "Seeshaupt",
+    "name": "Seeshaupt (Schiff)",
+    "globalId": "de:09190:9927",
+    "divaId": 1190008,
+    "hasZoomData": false,
+    "transportTypes": [
+      "SCHIFF"
+    ],
+    "surroundingPlanLink": "",
+    "aliases": "",
+    "tariffZones": ""
+  },
+  {
+    "type": "POI",
+    "latitude": 48.253844,
+    "longitude": 11.442866,
+    "place": "Dachau",
+    "name": "Hauptpost"
+  },
+  {
+    "type": "POI",
+    "latitude": 48.18226,
+    "longitude": 11.187681,
+    "place": "Fürstenfeldbruck",
+    "name": "Hauptfeld"
+  },
+  {
+    "type": "POI",
+    "latitude": 48.320948,
+    "longitude": 11.737684,
+    "place": "Hallbergmoos",
+    "name": "Hauptfeld"
+  },
+  {
+    "type": "POI",
+    "latitude": 48.470872,
+    "longitude": 11.121556,
+    "place": "Aichach",
+    "name": "Hauptplatz"
+  },
+  {
+    "type": "POI",
+    "latitude": 48.323272,
+    "longitude": 11.555847,
+    "place": "Haimhausen",
+    "name": "Hauptplatz"
+  },
+  {
+    "type": "POI",
+    "latitude": 48.086904,
+    "longitude": 11.46279,
+    "place": "Neuried (Kr München)",
+    "name": "Hauptplatz"
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.066392,
+    "longitude": 11.379696,
+    "place": "Gauting",
+    "name": "Hauptplatz",
+    "postCode": "82131",
+    "street": "Hauptplatz",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.172968,
+    "longitude": 11.323668,
+    "place": "Eichenau (b München)",
+    "name": "Hauptplatz",
+    "postCode": "82223",
+    "street": "Hauptplatz",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.530044,
+    "longitude": 11.506628,
+    "place": "Pfaffenhofen (Ilm)",
+    "name": "Hauptplatz",
+    "postCode": "85276",
+    "street": "Hauptplatz",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.049764,
+    "longitude": 10.876271,
+    "place": "Landsberg a.Lech",
+    "name": "Hauptplatz",
+    "postCode": "86899",
+    "street": "Hauptplatz",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.796288,
+    "longitude": 10.921556,
+    "place": "Peiting",
+    "name": "Hauptplatz",
+    "postCode": "86971",
+    "street": "Hauptplatz",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.848532,
+    "longitude": 10.897319,
+    "place": "Hohenfurch",
+    "name": "Hauptplatz",
+    "postCode": "86978",
+    "street": "Hauptplatz",
+    "houseNumber": ""
+  },
+  {
+    "type": "POI",
+    "latitude": 48.168456,
+    "longitude": 11.801509,
+    "place": "Poing (Kr EBE)",
+    "name": "Hauptpforte"
+  },
+  {
+    "type": "POI",
+    "latitude": 48.60222,
+    "longitude": 11.629617,
+    "place": "Wolnzach",
+    "name": "Hauptschule"
+  },
+  {
+    "type": "POI",
+    "latitude": 48.155172,
+    "longitude": 11.624676,
+    "place": "München",
+    "name": "Haupteingang"
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.058188,
+    "longitude": 11.619205,
+    "place": "Unterhaching",
+    "name": "Hauptstraße",
+    "postCode": "82008",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.961076,
+    "longitude": 11.595499,
+    "place": "Sauerlach",
+    "name": "Hauptstraße",
+    "postCode": "82054",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.970304,
+    "longitude": 11.516186,
+    "place": "Straßlach",
+    "name": "Hauptstraße",
+    "postCode": "82064",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.065856,
+    "longitude": 11.323588,
+    "place": "Gauting",
+    "name": "Hauptstraße",
+    "postCode": "82131",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.207432,
+    "longitude": 11.327747,
+    "place": "Olching (Obb)",
+    "name": "Hauptstraße",
+    "postCode": "82140",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.107016,
+    "longitude": 11.324198,
+    "place": "Gilching",
+    "name": "Hauptstraße",
+    "postCode": "82205",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.034888,
+    "longitude": 11.136163,
+    "place": "Herrsching (a Ammersee)",
+    "name": "Hauptstraße",
+    "postCode": "82211",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.217412,
+    "longitude": 11.261496,
+    "place": "Maisach",
+    "name": "Hauptstraße",
+    "postCode": "82216",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.167948,
+    "longitude": 11.323022,
+    "place": "Eichenau (b München)",
+    "name": "Hauptstraße",
+    "postCode": "82223",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.076264,
+    "longitude": 11.250635,
+    "place": "Weßling",
+    "name": "Hauptstraße",
+    "postCode": "82234",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.058912,
+    "longitude": 11.205729,
+    "place": "Wörthsee",
+    "name": "Hauptstraße",
+    "postCode": "82237",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.178568,
+    "longitude": 11.254597,
+    "place": "Fürstenfeldbruck",
+    "name": "Hauptstraße",
+    "postCode": "82256",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.055152,
+    "longitude": 11.13805,
+    "place": "Inning am Ammersee",
+    "name": "Hauptstraße",
+    "postCode": "82266",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.141308,
+    "longitude": 11.019041,
+    "place": "Geltendorf",
+    "name": "Hauptstraße",
+    "postCode": "82269",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.186564,
+    "longitude": 11.086262,
+    "place": "Moorenweis",
+    "name": "Hauptstraße",
+    "postCode": "82272",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.184008,
+    "longitude": 11.273003,
+    "place": "Emmering (Kr FFB)",
+    "name": "Hauptstraße",
+    "postCode": "82275",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.199172,
+    "longitude": 11.115987,
+    "place": "Adelshofen (Kr FFB)",
+    "name": "Hauptstraße",
+    "postCode": "82276",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.25216,
+    "longitude": 11.179704,
+    "place": "Egenhofen (Kr FFB)",
+    "name": "Hauptstraße",
+    "postCode": "82281",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.12406,
+    "longitude": 11.163948,
+    "place": "Grafrath",
+    "name": "Hauptstraße",
+    "postCode": "82284",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.22356,
+    "longitude": 11.11834,
+    "place": "Hattenhofen (Kr FFB)",
+    "name": "Hauptstraße",
+    "postCode": "82285",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.161932,
+    "longitude": 11.16932,
+    "place": "Landsberied",
+    "name": "Hauptstraße",
+    "postCode": "82290",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.25766,
+    "longitude": 11.093502,
+    "place": "Mittelstetten (FFB)",
+    "name": "Hauptstraße",
+    "postCode": "82293",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.240584,
+    "longitude": 11.158531,
+    "place": "Oberschweinbach",
+    "name": "Hauptstraße",
+    "postCode": "82294",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.214976,
+    "longitude": 11.001793,
+    "place": "Steindorf (Paar)",
+    "name": "Hauptstraße",
+    "postCode": "82297",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.998408,
+    "longitude": 11.34053,
+    "place": "Starnberg",
+    "name": "Hauptstraße",
+    "postCode": "82319",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.912792,
+    "longitude": 11.281969,
+    "place": "Tutzing",
+    "name": "Hauptstraße",
+    "postCode": "82327",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.968784,
+    "longitude": 11.302576,
+    "place": "Pöcking",
+    "name": "Hauptstraße",
+    "postCode": "82343",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.824556,
+    "longitude": 11.30245,
+    "place": "Seeshaupt",
+    "name": "Hauptstraße",
+    "postCode": "82402",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.874324,
+    "longitude": 11.220021,
+    "place": "Wielenbach",
+    "name": "Hauptstraße",
+    "postCode": "82407",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.90294,
+    "longitude": 11.37171,
+    "place": "Münsing",
+    "name": "Hauptstraße",
+    "postCode": "82541",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.921624,
+    "longitude": 11.535437,
+    "place": "Egling (b Wolfratshausen)",
+    "name": "Hauptstraße",
+    "postCode": "82544",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.852824,
+    "longitude": 11.402352,
+    "place": "Eurasburg (b Wolfratshausen)",
+    "name": "Hauptstraße",
+    "postCode": "82547",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.8151,
+    "longitude": 11.479912,
+    "place": "Königsdorf (Obb)",
+    "name": "Hauptstraße",
+    "postCode": "82549",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.866428,
+    "longitude": 11.92421,
+    "place": "Bruckmühl (Mangfall)",
+    "name": "Hauptstraße",
+    "postCode": "83052",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.161712,
+    "longitude": 12.184686,
+    "place": "Haag (Obb.)",
+    "name": "Hauptstraße",
+    "postCode": "83527",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.056372,
+    "longitude": 12.165983,
+    "place": "Edling",
+    "name": "Hauptstraße",
+    "postCode": "83533",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.055836,
+    "longitude": 12.109003,
+    "place": "Pfaffing (Wasserburg",
+    "name": "Hauptstraße",
+    "postCode": "83539",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.997364,
+    "longitude": 12.055849,
+    "place": "Emmering (Kr Ebersberg)",
+    "name": "Hauptstraße",
+    "postCode": "83550",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.029448,
+    "longitude": 12.047145,
+    "place": "Frauenneuharting",
+    "name": "Hauptstraße",
+    "postCode": "83553",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.12324,
+    "longitude": 12.1592,
+    "place": "Rechtmehring",
+    "name": "Hauptstraße",
+    "postCode": "83562",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.896812,
+    "longitude": 11.719565,
+    "place": "Holzkirchen (Kr MB)",
+    "name": "Hauptstraße",
+    "postCode": "83607",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.873268,
+    "longitude": 11.882474,
+    "place": "Feldkirch.-Westerham",
+    "name": "Hauptstraße",
+    "postCode": "83620",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.88866,
+    "longitude": 11.500044,
+    "place": "Dietramszell",
+    "name": "Hauptstraße",
+    "postCode": "83623",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.855012,
+    "longitude": 11.855759,
+    "place": "Weyarn",
+    "name": "Hauptstraße",
+    "postCode": "83629",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 47.713232,
+    "longitude": 11.556413,
+    "place": "Wackersberg (Kr TÖL)",
+    "name": "Hauptstraße",
+    "postCode": "83646",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.613648,
+    "longitude": 11.750889,
+    "place": "Mainburg/Kr Kelheim",
+    "name": "Hauptstraße",
+    "postCode": "84048",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.537236,
+    "longitude": 11.75503,
+    "place": "Au in der Hallertau",
+    "name": "Hauptstraße",
+    "postCode": "84072",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.530624,
+    "longitude": 12.028864,
+    "place": "Bruckberg (Ndb)",
+    "name": "Hauptstraße",
+    "postCode": "84079",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.673604,
+    "longitude": 11.875773,
+    "place": "Attenhofen (Ndb)",
+    "name": "Hauptstraße",
+    "postCode": "84091",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.581848,
+    "longitude": 11.828809,
+    "place": "Rudelzhausen",
+    "name": "Hauptstraße",
+    "postCode": "84104",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.60642,
+    "longitude": 11.872386,
+    "place": "Volkenschwand",
+    "name": "Hauptstraße",
+    "postCode": "84106",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.293312,
+    "longitude": 12.214465,
+    "place": "Dorfen (Kr Erding)",
+    "name": "Hauptstraße",
+    "postCode": "84405",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.347708,
+    "longitude": 12.076493,
+    "place": "Inning am Holz",
+    "name": "Hauptstraße",
+    "postCode": "84416",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.342816,
+    "longitude": 12.182718,
+    "place": "Taufkirchen (Vils)",
+    "name": "Hauptstraße",
+    "postCode": "84416",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.214696,
+    "longitude": 12.245385,
+    "place": "Obertaufkirchen",
+    "name": "Hauptstraße",
+    "postCode": "84419",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.220292,
+    "longitude": 12.135305,
+    "place": "Sankt Wolfgang (Kr ED)",
+    "name": "Hauptstraße",
+    "postCode": "84427",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.312272,
+    "longitude": 12.273987,
+    "place": "Buchbach (Oberbay)",
+    "name": "Hauptstraße",
+    "postCode": "84428",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.382012,
+    "longitude": 12.130113,
+    "place": "Hohenpolding",
+    "name": "Hauptstraße",
+    "postCode": "84432",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.404776,
+    "longitude": 12.081478,
+    "place": "Kirchberg (Kr ED)",
+    "name": "Hauptstraße",
+    "postCode": "84434",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.257452,
+    "longitude": 12.052472,
+    "place": "Lengdorf (Kr Erding)",
+    "name": "Hauptstraße",
+    "postCode": "84435",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.390592,
+    "longitude": 12.084649,
+    "place": "Steinkirchen (Holzland)",
+    "name": "Hauptstraße",
+    "postCode": "84439",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.257776,
+    "longitude": 11.394581,
+    "place": "Bergkirchen (Kr DAH)",
+    "name": "Hauptstraße",
+    "postCode": "85232",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.292716,
+    "longitude": 11.155396,
+    "place": "Pfaffenhofen (Glonn)",
+    "name": "Hauptstraße",
+    "postCode": "85235",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.308856,
+    "longitude": 11.194383,
+    "place": "Odelzhausen",
+    "name": "Hauptstraße",
+    "postCode": "85235",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.425624,
+    "longitude": 11.478924,
+    "place": "Petershausen",
+    "name": "Hauptstraße",
+    "postCode": "85238",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.322332,
+    "longitude": 11.413311,
+    "place": "Röhrmoos (Kr DAH)",
+    "name": "Hauptstraße",
+    "postCode": "85244",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.285244,
+    "longitude": 11.345408,
+    "place": "Schwabhausen (b DAH)",
+    "name": "Hauptstraße",
+    "postCode": "85247",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.362844,
+    "longitude": 11.263032,
+    "place": "Altomünster",
+    "name": "Hauptstraße",
+    "postCode": "85250",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.332372,
+    "longitude": 11.304256,
+    "place": "Erdweg",
+    "name": "Hauptstraße",
+    "postCode": "85253",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.367452,
+    "longitude": 11.506296,
+    "place": "Vierkirchen (b DAH)",
+    "name": "Hauptstraße",
+    "postCode": "85256",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.300508,
+    "longitude": 11.237098,
+    "place": "Sulzemoos",
+    "name": "Hauptstraße",
+    "postCode": "85259",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.501036,
+    "longitude": 11.504715,
+    "place": "Hettenshausen",
+    "name": "Hauptstraße",
+    "postCode": "85276",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.56122,
+    "longitude": 11.626473,
+    "place": "Wolnzach",
+    "name": "Hauptstraße",
+    "postCode": "85283",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.435116,
+    "longitude": 11.456439,
+    "place": "Reichertshausen (Ilm)",
+    "name": "Hauptstraße",
+    "postCode": "85293",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.504892,
+    "longitude": 11.603826,
+    "place": "Schweitenkirchen",
+    "name": "Hauptstraße",
+    "postCode": "85301",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.531016,
+    "longitude": 11.351193,
+    "place": "Gerolsbach",
+    "name": "Hauptstraße",
+    "postCode": "85302",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.434448,
+    "longitude": 11.422312,
+    "place": "Jetzendorf (Obb)",
+    "name": "Hauptstraße",
+    "postCode": "85305",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.47572,
+    "longitude": 11.563429,
+    "place": "Paunzhausen",
+    "name": "Hauptstraße",
+    "postCode": "85307",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.362664,
+    "longitude": 11.648787,
+    "place": "Neufahrn (b Freising)",
+    "name": "Hauptstraße",
+    "postCode": "85376",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.281036,
+    "longitude": 11.676248,
+    "place": "Eching (Kr Freising)",
+    "name": "Hauptstraße",
+    "postCode": "85386",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.434732,
+    "longitude": 11.624963,
+    "place": "Allershausen (Oberbay)",
+    "name": "Hauptstraße",
+    "postCode": "85391",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.480812,
+    "longitude": 11.707492,
+    "place": "Wolfersdorf (Oberbay)",
+    "name": "Hauptstraße",
+    "postCode": "85395",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.505136,
+    "longitude": 11.758345,
+    "place": "Attenkirchen",
+    "name": "Hauptstraße",
+    "postCode": "85395",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.31186,
+    "longitude": 11.751051,
+    "place": "Hallbergmoos",
+    "name": "Hauptstraße",
+    "postCode": "85399",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  },
+  {
+    "type": "ADDRESS",
+    "latitude": 48.49746,
+    "longitude": 11.80177,
+    "place": "Zolling",
+    "name": "Hauptstraße",
+    "postCode": "85406",
+    "street": "Hauptstraße",
+    "houseNumber": ""
+  }
+]

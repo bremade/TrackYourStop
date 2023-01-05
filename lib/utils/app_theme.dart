@@ -1,132 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logger/logger.dart';
 import 'package:mvv_tracker/constants/colors.dart';
 import 'package:mvv_tracker/utils/logger.dart';
 
-final ThemeProvider = StateProvider<ThemeMode>((ref) {
+final themeProvider = StateProvider<ThemeMode>((ref) {
   final logger = getLogger("ThemeProvider");
-  var themeMode = "dark"; // TODO: Make this configurable
+  var configuredMode = "dark"; // TODO: Make this configurable
+  var themeMode = ThemeMode.system;
+
+  if (configuredMode == "light") {
+    themeMode = ThemeMode.light;
+  } else if (configuredMode == "dark") {
+    themeMode = ThemeMode.dark;
+  }
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: themeMode == ThemeMode.dark ? darkStatusBar : statusBar,
+      systemNavigationBarColor:
+          themeMode == ThemeMode.dark ? darkStatusBar : statusBar));
 
   logger.d("Current themeMode $themeMode");
-
-  if (themeMode == "light") {
-    return ThemeMode.light;
-  } else if (themeMode == "dark") {
-    return ThemeMode.dark;
-  } else {
-    return ThemeMode.system;
-  }
+  return themeMode;
 });
 
 ThemeData darkTheme = ThemeData(
-  useMaterial3: true,
-  brightness: Brightness.dark,
-  primarySwatch: Colors.indigo,
-  primaryColor: darkBackgroundColor,
-  scaffoldBackgroundColor: darkBackgroundColor,
-  hintColor: Colors.grey[600],
-  fontFamily: 'WorkSans',
-  snackBarTheme: const SnackBarThemeData(
-    contentTextStyle: TextStyle(fontFamily: 'WorkSans'),
-  ),
-  appBarTheme: AppBarTheme(
-    titleTextStyle: const TextStyle(
-      fontFamily: 'WorkSans',
-      color: Color.fromARGB(255, 35, 36, 37),
-    ),
-    backgroundColor: darkBackgroundColor,
-    foregroundColor: darkPrimaryColor,
-    elevation: 1,
-    centerTitle: true,
-    systemOverlayStyle: SystemUiOverlayStyle.light,
-  ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    type: BottomNavigationBarType.fixed,
-    backgroundColor: const Color.fromARGB(255, 35, 36, 37),
-    selectedItemColor: darkPrimaryColor,
-  ),
-  drawerTheme: DrawerThemeData(
-    backgroundColor: darkBackgroundColor,
-    scrimColor: Colors.white.withOpacity(0.1),
-  ),
-  textTheme: TextTheme(
-    headline1: const TextStyle(
-      fontSize: 26,
-      fontWeight: FontWeight.bold,
-      color: Color.fromARGB(255, 255, 255, 255),
-    ),
-    headline2: const TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-      color: Color.fromARGB(255, 148, 151, 155),
-    ),
-    headline3: TextStyle(
-      fontSize: 12,
-      fontWeight: FontWeight.bold,
-      color: darkPrimaryColor,
-    ),
-  ),
-  cardColor: Colors.grey[900],
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      foregroundColor: Colors.black87,
-      backgroundColor: darkPrimaryColor,
-    ),
-  ),
-);
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    primaryColor: darkPrimaryColor,
+    scaffoldBackgroundColor: darkBackgroundColor,
+    hintColor: Colors.grey[600],
+    fontFamily: 'WorkSans',
+    appBarTheme: const AppBarTheme(
+        //elevation: 2.0,
+        color: Color(0xff616d8f)),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: darkBackgroundColor,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: darkLightPrimaryColor),
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData(backgroundColor: darkSecondaryColor),
+    chipTheme: ChipThemeData(
+      backgroundColor: darkLightPrimaryColor,
+      deleteIconColor: Colors.white,
+      elevation: 6.0,
+      labelPadding: const EdgeInsets.only(
+        left: 2.0,
+        right: 2.0
+      ),
+      side: const BorderSide(style: BorderStyle.none),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+    ));
 
 ThemeData lightTheme = ThemeData(
-  useMaterial3: true,
-  brightness: Brightness.light,
-  primarySwatch: Colors.indigo,
-  hintColor: Colors.indigo,
-  fontFamily: 'WorkSans',
-  scaffoldBackgroundColor: backgroundColor,
-  snackBarTheme: const SnackBarThemeData(
-    contentTextStyle: TextStyle(fontFamily: 'WorkSans'),
-  ),
-  appBarTheme: AppBarTheme(
-    titleTextStyle: const TextStyle(
-      fontFamily: 'WorkSans',
-      color: Colors.indigo,
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    primaryColor: darkPrimaryColor,
+    scaffoldBackgroundColor: darkBackgroundColor,
+    hintColor: Colors.grey[600],
+    fontFamily: 'WorkSans',
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: darkBackgroundColor,
+      selectedItemColor: Colors.white,
     ),
-    backgroundColor: backgroundColor,
-    foregroundColor: Colors.indigo,
-    elevation: 1,
-    centerTitle: true,
-    systemOverlayStyle: SystemUiOverlayStyle.dark,
-  ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    type: BottomNavigationBarType.fixed,
-    backgroundColor: backgroundColor,
-    selectedItemColor: Colors.indigo,
-  ),
-  drawerTheme: DrawerThemeData(
-    backgroundColor: backgroundColor,
-  ),
-  textTheme: const TextTheme(
-    headline1: TextStyle(
-      fontSize: 26,
-      fontWeight: FontWeight.bold,
-      color: Colors.indigo,
-    ),
-    headline2: TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-      color: Colors.black87,
-    ),
-    headline3: TextStyle(
-      fontSize: 12,
-      fontWeight: FontWeight.bold,
-      color: Colors.indigo,
-    ),
-  ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.indigo,
-      foregroundColor: Colors.white,
-    ),
-  ),
-);
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData(backgroundColor: darkSecondaryColor));

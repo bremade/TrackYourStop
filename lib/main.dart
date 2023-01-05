@@ -1,24 +1,28 @@
 // Copyright 2018 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:mvv_tracker/modules/favorites/database/favorites_database.dart';
+import 'package:mvv_tracker/modules/favorites/models/favorite.model.dart';
+import 'package:mvv_tracker/modules/favorites/ui/favorite_app_bar.dart';
 import 'package:mvv_tracker/routing/router.dart';
 import 'package:mvv_tracker/routing/tab_navigation_observer.dart';
 import 'package:mvv_tracker/shared/provider/app_state.provider.dart';
-import 'package:mvv_tracker/utils/logger.dart';
 import 'package:mvv_tracker/utils/app_theme.dart';
+import 'package:mvv_tracker/utils/logger.dart';
 
-void main() {
+void main() async {
   Logger.level = Level.debug;
-  runApp(const ProviderScope(
-      child: HaltestellenTrackerApp()
-  ));
+  runApp(const ProviderScope(child: HaltestellenTrackerApp()));
+  /*await FavoritesDatabase.instance.create(
+      const Favorite(origin: "Böhmerwaldplatz", originGlobalId: "de:09162:560", types: "UBAHN,BUS", destinations: "Arabellapark,Theresienwiese"));
+  await FavoritesDatabase.instance.create(
+      const Favorite(origin: "Hauptbahnhof", originGlobalId: "de:09162:6", types: "UBAHN,TRAM,SBAHN", destinations: "Geltendorf,Amalienburgstraße,Freising"));*/
 }
+
+final logger = getLogger("Main");
 
 class HaltestellenTrackerApp extends ConsumerStatefulWidget {
   const HaltestellenTrackerApp({super.key});
@@ -27,24 +31,25 @@ class HaltestellenTrackerApp extends ConsumerStatefulWidget {
   HaltestellenTrackerState createState() => HaltestellenTrackerState();
 }
 
-class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp> with WidgetsBindingObserver {
+class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp>
+    with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     switch (state) {
       case AppLifecycleState.resumed:
-        debugPrint("[APP STATE] resumed");
+        logger.d("[APP STATE] resumed");
         ref.watch(appStateProvider.notifier).state = AppStateEnum.resumed;
         break;
       case AppLifecycleState.inactive:
-        debugPrint("[APP STATE] inactive");
+        logger.d("[APP STATE] inactive");
         ref.watch(appStateProvider.notifier).state = AppStateEnum.inactive;
         break;
       case AppLifecycleState.paused:
-        debugPrint("[APP STATE] paused");
+        logger.d("[APP STATE] paused");
         ref.watch(appStateProvider.notifier).state = AppStateEnum.paused;
         break;
       case AppLifecycleState.detached:
-        debugPrint("[APP STATE] detached");
+        logger.d("[APP STATE] detached");
         ref.watch(appStateProvider.notifier).state = AppStateEnum.detached;
         break;
     }
@@ -57,7 +62,7 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp> wit
   @override
   initState() {
     super.initState();
-    initApp().then((_) => debugPrint("App Init Completed"));
+    initApp().then((_) => logger.d("App Init Completed"));
   }
 
   @override
@@ -69,23 +74,15 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp> wit
   @override
   Widget build(BuildContext context) {
     final router = AppRouter();
-
-    return MaterialApp(
+    return MaterialApp.router(
+      title: 'Haltestellen Tracker',
       debugShowCheckedModeBanner: false,
-      home: Stack(
-        children: [
-          MaterialApp.router(
-            title: 'Haltestellen Tracker',
-            debugShowCheckedModeBanner: false,
-            themeMode: ref.watch(ThemeProvider),
-            darkTheme: darkTheme,
-            theme: lightTheme,
-            routeInformationParser: router.defaultRouteParser(),
-            routerDelegate: router.delegate(
-              navigatorObservers: () => [TabNavigationObserver(ref: ref)],
-            ),
-          ),
-        ],
+      themeMode: ref.watch(themeProvider),
+      darkTheme: darkTheme,
+      theme: lightTheme,
+      routeInformationParser: router.defaultRouteParser(),
+      routerDelegate: router.delegate(
+        navigatorObservers: () => [TabNavigationObserver(ref: ref)],
       ),
     );
   }

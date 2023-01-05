@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mvv_tracker/modules/favorites/provider/favorite_list_provider.dart';
 
 class TabNavigationObserver extends AutoRouterObserver {
   /// Riverpod Instance
@@ -19,8 +20,8 @@ class TabNavigationObserver extends AutoRouterObserver {
       TabPageRoute route,
       TabPageRoute previousRoute,
       ) async {
-    // Perform tasks on re-visit to SearchRoute
-    // TODO: watch provider which should be notified
-    //  ref.watch(<provider>.notifier);
+    if (route.name == 'DepartureRoute') {
+      ref.refresh(favoriteListProvider);
+    }
   }
 }

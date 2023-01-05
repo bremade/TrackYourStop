@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:mvv_tracker/modules/departure/view/departure_page.dart';
+import 'package:mvv_tracker/modules/departure/views/departure_page.dart';
+import 'package:mvv_tracker/modules/favorites/views/favorite_page.dart';
 
 part 'router.gr.dart';
 
@@ -8,6 +9,7 @@ part 'router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: DeparturePage, initial: true),
+    AutoRoute(page: FavoritePage),
   ],
 )
 class AppRouter extends _$AppRouter{}
