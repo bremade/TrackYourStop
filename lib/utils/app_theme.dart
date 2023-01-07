@@ -51,7 +51,11 @@ ThemeData darkTheme = ThemeData(
       ),
       side: const BorderSide(style: BorderStyle.none),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-    ));
+    ),
+    checkboxTheme: CheckboxThemeData(
+      fillColor: MaterialStateProperty.all<Color>(darkLightPrimaryColor)
+    )
+);
 
 ThemeData lightTheme = ThemeData(
     useMaterial3: true,

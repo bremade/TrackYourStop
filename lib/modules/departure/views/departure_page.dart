@@ -26,7 +26,7 @@ class DeparturePage extends HookConsumerWidget {
         stationCards.add(
           // Add station name as divider
           Container(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(top:5.0, left: 20.0),
             child: Align(
               alignment: AlignmentDirectional.centerStart,
               child: Text(
@@ -38,7 +38,7 @@ class DeparturePage extends HookConsumerWidget {
           ),
         );
         for (var stationDeparture in stationDepartures) {
-          logger.i(stationDeparture.toJson());
+          logger.d(stationDeparture.toJson());
           stationCards.add(buildCard(Icons.train, stationDeparture.destination,
               stationDeparture.realtimeDepartureTime));
         }
@@ -61,10 +61,11 @@ class DeparturePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Widget buildBody() {
+      // Retrieve favorites from database
       Future<List<Favorite>> favorites = ref.watch(favoriteListProvider);
+      // Build map that maps origin station maps to its departures
       Future<HashMap<String, List<DepartureResponse>>> stationMapFuture =
           buildStationMap(favorites);
-      // Wenn x milliseconds keine eingabe dann anfragen
       return FutureBuilder(
           future: stationMapFuture,
           builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -79,7 +80,7 @@ class DeparturePage extends HookConsumerWidget {
                   final Map<String, List<DepartureResponse>> stationMap =
                       Map.from(snapshot.data);
                   if (stationMap.isEmpty) {
-                    return const Center(child: Text("TEST"));
+                    return const Center(child: Text("No stations defined yet."));
                   }
                   return buildListView(context, stationMap);
                 }

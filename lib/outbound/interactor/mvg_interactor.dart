@@ -4,14 +4,13 @@ import 'package:http/http.dart' as http;
 import 'package:mvv_tracker/outbound/models/departure_response.dart';
 import 'package:mvv_tracker/outbound/models/station_response.dart';
 import 'package:mvv_tracker/utils/list.util.dart';
+import 'package:mvv_tracker/utils/logger.dart';
 import 'package:mvv_tracker/utils/string.util.dart';
+
+final logger = getLogger("MvgInteractor");
 
 class MvgInteractor {
   static const baseUri = "https://www.mvg.de/api/fib/v2";
-
-  Future<http.Response> fetchStops(String location) {
-    return http.get(Uri.parse('$baseUri/location?query=$location'));
-  }
 
   static Future<List<DepartureResponse>> fetchDepartures(
       String globalStationId,
@@ -32,6 +31,20 @@ class MvgInteractor {
     }
   }
 
+  static Future<List<DepartureResponse>> fetchDeparturesByOriginAndTransportTypes(final StationResponse? stationResponse, final List<String> transportTypes) async {
+    final transformedTransportTypes = convertArrayToString(transportTypes);
+    final response = await http.get(Uri.parse(
+        '$baseUri/departure?globalId=${stationResponse!.globalId}&limit=50&offsetInMinutes=0&transportTypes=$transformedTransportTypes'));
+    if (response.statusCode == 200) {
+      final departureData = (json.decode(response.body) as List)
+          .map((departureData) => DepartureResponse.fromJson(departureData))
+          .toList();
+      return departureData.unique((el) => el.destination);
+    } else {
+      return List.empty();
+    }
+  }
+
   static Future<List<StationResponse>> fetchStationData(
       String stationName) async {
     final response =
@@ -43,6 +56,31 @@ class MvgInteractor {
           .toList();
     } else {
       return List.empty();
+    }
+  }
+
+  static Future<List<StationResponse>> getStationSuggestions(String stationName) async {
+    logger.d('Execution api call for station suggestions.');
+    final response =
+    await http.get(Uri.parse('$baseUri/location?query=$stationName'));
+    if (stationName == '') {
+      return List<StationResponse>.empty();
+    }
+    if (response.statusCode == 200) {
+
+      final stationList = (json.decode(response.body) as List)
+          .where((stationData) => stationData['type'] == 'STATION')
+          .map((stationData) => StationResponse.fromJson(stationData))
+          .toList();
+
+      for (var element in stationList) {logger.d(element.toJson());}
+
+      return stationList.where((StationResponse option) {
+        return option.name.toLowerCase()
+            .contains(stationName.toLowerCase());
+      }).toList();
+    } else {
+      return List<StationResponse>.empty();
     }
   }
 }

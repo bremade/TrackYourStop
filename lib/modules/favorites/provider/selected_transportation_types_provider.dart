@@ -11,16 +11,18 @@ enum TransportationTypeEnum {
   const TransportationTypeEnum(this.name);
 }
 
-class TransportationTypeNotifier extends StateNotifier<List<String>> {
-  TransportationTypeNotifier() : super([]);
+class SelectedTransportationTypesNotifier extends StateNotifier<List<String>> {
+  SelectedTransportationTypesNotifier() : super([]);
 
   void addTransportationType(String type) {
+    type = type.toUpperCase();
     if (!state.contains(type)) {
       state = [...state, type];
     }
   }
 
   void removeTransportationType(String typeToDelete) {
+    typeToDelete = typeToDelete.toUpperCase();
     state = [
       for (final type in state)
         if (type != typeToDelete) type,
@@ -28,7 +30,7 @@ class TransportationTypeNotifier extends StateNotifier<List<String>> {
   }
 }
 
-final transportationTypeProvider =
-    StateNotifierProvider<TransportationTypeNotifier, List<String>>((ref) {
-  return TransportationTypeNotifier();
+final selectedTransportationTypesProvider =
+    StateNotifierProvider<SelectedTransportationTypesNotifier, List<String>>((ref) {
+  return SelectedTransportationTypesNotifier();
 });
