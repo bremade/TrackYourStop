@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:mvv_tracker/modules/favorites/models/favorite.model.dart';
+import 'package:mvv_tracker/utils/string.util.dart';
 import 'package:sqflite/sqflite.dart';
 
 class FavoritesDatabase {
@@ -16,7 +17,7 @@ class FavoritesDatabase {
     return _database!;
   }
 
-  Future<Database> _initDB(String filePath) async {
+  Future<Database> _initDB(filePath) async {
     return await openDatabase(filePath, version: 1, onCreate: _createDB);
   }
 
@@ -29,19 +30,29 @@ CREATE TABLE $tableFavorite (
   ${FavoriteFields.types} $textType,
   ${FavoriteFields.origin} $textType,
   ${FavoriteFields.originGlobalId} $textType,
-  ${FavoriteFields.destinations} $textType
+  ${FavoriteFields.destination} $textType
 )''');
   }
 
   Future<Favorite> readSingle(int id) async {
     final db = await instance.database;
     final results = await db.query(tableFavorite,
-        where: '${FavoriteFields.id} = ?',
-        whereArgs: [id]);
+        where: '${FavoriteFields.id} = ?', whereArgs: [id]);
     if (results.isNotEmpty) {
       return Favorite.fromJson(results.first);
     } else {
       throw Exception("ID $id not found in database");
+    }
+  }
+
+  Future<Favorite?> readSingleByOrigin(String origin) async {
+    final db = await instance.database;
+    final results = await db.query(tableFavorite,
+        where: '${FavoriteFields.origin} = ?', whereArgs: [origin]);
+    if (results.isNotEmpty) {
+      return Favorite.fromJson(results.first);
+    } else {
+      return null;
     }
   }
 
@@ -57,6 +68,15 @@ CREATE TABLE $tableFavorite (
     return favorite.copy(id: id);
   }
 
+  void createFavoritesInBatch(List<Favorite> favorites) async {
+    final db = await instance.database;
+    final Batch batch = db.batch();
+    for (var favorite in favorites) {
+      batch.insert(tableFavorite, favorite.toJson());
+    }
+    await batch.commit();
+  }
+
   Future<int> update(Favorite favorite) async {
     final db = await instance.database;
     return await db.update(tableFavorite, favorite.toJson(),
@@ -67,6 +87,14 @@ CREATE TABLE $tableFavorite (
     final db = await instance.database;
     return await db.delete(tableFavorite,
         where: '${FavoriteFields.id} = ?', whereArgs: [idToDelete]);
+  }
+
+  Future<int> deleteDestination(String origin, String destination) async {
+    final db = await instance.database;
+    return await db.delete(tableFavorite,
+        where:
+            '${FavoriteFields.origin} = ? and ${FavoriteFields.destination} = ?',
+        whereArgs: [origin, destination]);
   }
 
   Future<int> deleteAll() async {

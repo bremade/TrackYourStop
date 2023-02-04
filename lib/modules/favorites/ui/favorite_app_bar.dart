@@ -21,7 +21,6 @@ class FavoriteAppBar extends ConsumerWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     void exitContext() {
       ref.watch(stationControllerProvider).clear();
       ref.invalidate(selectedDestinationsProvider);
@@ -52,14 +51,18 @@ class FavoriteAppBar extends ConsumerWidget with PreferredSizeWidget {
             final selectedDestinationNames =
                 selectedDestinations.map((e) => e.destination).toList();
 
-            FavoritesDatabase.instance.create(Favorite(
-                origin: selectedOrigin!.name,
-                originGlobalId: selectedOrigin.globalId,
-                types: convertArrayToString(selectedTransportationTypes),
-                destinations: convertArrayToString(selectedDestinationNames)));
+            List<Favorite> toCreate = selectedDestinationNames
+                .map((String destination) => Favorite(
+                    types: convertArrayToString(selectedTransportationTypes),
+                    origin: selectedOrigin!.name,
+                    originGlobalId: selectedOrigin.globalId,
+                    destination: destination))
+                .toList();
+            FavoritesDatabase.instance.createFavoritesInBatch(toCreate);
 
             // Refresh favorite provider and therefore main view data
-            ref.read(favoriteListProvider.notifier).state = FavoritesDatabase.instance.readAll();
+            ref.read(favoriteListProvider.notifier).state =
+                FavoritesDatabase.instance.readAll();
             // Delete context when switching back to main view
             exitContext();
           },

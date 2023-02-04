@@ -3,7 +3,7 @@
     <!-- Required to fetch data from the internet. -->
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="mvv_tracker"
+        android:label="TrackYourStop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

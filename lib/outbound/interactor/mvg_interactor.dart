@@ -15,15 +15,16 @@ class MvgInteractor {
   static Future<List<DepartureResponse>> fetchDepartures(
       String globalStationId,
       final List<String> transportTypes,
-      final List<String> destinations) async {
+      final String destination) async {
     final transformedTransportTypes = convertArrayToString(transportTypes);
     final response = await http.get(Uri.parse(
         '$baseUri/departure?globalId=$globalStationId&limit=50&offsetInMinutes=0&transportTypes=$transformedTransportTypes'));
     if (response.statusCode == 200) {
       final departureData = (json.decode(response.body) as List)
           .where((departureData) =>
-              destinations.contains(departureData['destination']))
+              destination == departureData['destination'])
           .map((departureData) => DepartureResponse.fromJson(departureData))
+          .where((departureDataObject) => departureDataObject.realtimeDepartureTime <= 120)
           .toList();
       return departureData.unique((el) => el.destination);
     } else {

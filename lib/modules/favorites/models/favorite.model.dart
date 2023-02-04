@@ -6,13 +6,13 @@ class FavoriteFields {
     types,
     origin,
     originGlobalId,
-    destinations
+    destination
   ];
   static const String id = '_id';
   static const String types = 'types';
   static const String origin = 'origin';
   static const String originGlobalId = 'originGlobalId';
-  static const String destinations = 'destinations';
+  static const String destination = 'destination';
 }
 
 class Favorite {
@@ -20,21 +20,21 @@ class Favorite {
   final String types;
   final String origin;
   final String originGlobalId;
-  final String destinations;
+  final String destination;
 
   const Favorite(
       {this.id,
       required this.types,
       required this.origin,
       required this.originGlobalId,
-      required this.destinations});
+      required this.destination});
 
   static Favorite fromJson(Map<String, Object?> json) => Favorite(
         id: json[FavoriteFields.id] as int?,
         types: json[FavoriteFields.types] as String,
         origin: json[FavoriteFields.origin] as String,
         originGlobalId: json[FavoriteFields.originGlobalId] as String,
-        destinations: json[FavoriteFields.destinations] as String,
+        destination: json[FavoriteFields.destination] as String,
       );
 
   Map<String, Object?> toJson() => {
@@ -42,7 +42,7 @@ class Favorite {
         FavoriteFields.types: types,
         FavoriteFields.origin: origin,
         FavoriteFields.originGlobalId: originGlobalId,
-        FavoriteFields.destinations: destinations
+        FavoriteFields.destination: destination
       };
 
   Favorite copy(
@@ -56,5 +56,5 @@ class Favorite {
           types: types ?? this.types,
           origin: origin ?? this.origin,
           originGlobalId: originGlobalId ?? this.originGlobalId,
-          destinations: destinations ?? this.destinations);
+          destination: destinations ?? this.destination);
 }
