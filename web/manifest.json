@@ -1,6 +1,6 @@
 {
-    "name": "mvv_tracker",
-    "short_name": "mvv_tracker",
+    "name": "TrackYourStop",
+    "short_name": "TrackYourStop",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

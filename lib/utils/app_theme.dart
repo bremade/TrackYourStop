@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mvv_tracker/constants/colors.dart';
-import 'package:mvv_tracker/utils/logger.dart';
+import 'package:TrackYourStop/constants/colors.dart';
+import 'package:TrackYourStop/utils/logger.dart';
 
 final themeProvider = StateProvider<ThemeMode>((ref) {
   final logger = getLogger("ThemeProvider");

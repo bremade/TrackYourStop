@@ -1,4 +1,4 @@
-package com.tracker.mvv_tracker
+package com.tracker.TrackYourStop
 
 import io.flutter.embedding.android.FlutterActivity
 

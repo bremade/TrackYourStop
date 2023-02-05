@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:mvv_tracker/modules/favorites/models/favorite.model.dart';
-import 'package:mvv_tracker/utils/string.util.dart';
+import 'package:TrackYourStop/modules/favorites/models/favorite.model.dart';
+import 'package:TrackYourStop/utils/string.util.dart';
 import 'package:sqflite/sqflite.dart';
 
 class FavoritesDatabase {

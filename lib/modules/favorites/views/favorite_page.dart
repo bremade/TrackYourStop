@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mvv_tracker/modules/favorites/provider/polled_departures_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/selected_destinations_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/selected_origin_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/selected_transportation_types_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/station_controller_provider.dart';
-import 'package:mvv_tracker/modules/favorites/ui/favorite_app_bar.dart';
-import 'package:mvv_tracker/outbound/interactor/mvg_interactor.dart';
-import 'package:mvv_tracker/outbound/models/departure_response.dart';
-import 'package:mvv_tracker/outbound/models/station_response.dart';
-import 'package:mvv_tracker/utils/logger.dart';
+import 'package:TrackYourStop/modules/favorites/provider/polled_departures_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/selected_destinations_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/selected_origin_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/selected_transportation_types_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/station_controller_provider.dart';
+import 'package:TrackYourStop/modules/favorites/ui/favorite_app_bar.dart';
+import 'package:TrackYourStop/outbound/interactor/mvg_interactor.dart';
+import 'package:TrackYourStop/outbound/models/departure_response.dart';
+import 'package:TrackYourStop/outbound/models/station_response.dart';
+import 'package:TrackYourStop/utils/logger.dart';
 
 final logger = getLogger("FavoritePage");
 

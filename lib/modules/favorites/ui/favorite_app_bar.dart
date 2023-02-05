@@ -1,16 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mvv_tracker/modules/favorites/database/favorites_database.dart';
-import 'package:mvv_tracker/modules/favorites/models/favorite.model.dart';
-import 'package:mvv_tracker/modules/favorites/provider/favorite_list_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/polled_departures_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/selected_destinations_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/selected_origin_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/selected_transportation_types_provider.dart';
-import 'package:mvv_tracker/modules/favorites/provider/station_controller_provider.dart';
-import 'package:mvv_tracker/utils/logger.dart';
-import 'package:mvv_tracker/utils/string.util.dart';
+import 'package:TrackYourStop/modules/favorites/database/favorites_database.dart';
+import 'package:TrackYourStop/modules/favorites/models/favorite.model.dart';
+import 'package:TrackYourStop/modules/favorites/provider/favorite_list_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/polled_departures_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/selected_destinations_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/selected_origin_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/selected_transportation_types_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/station_controller_provider.dart';
+import 'package:TrackYourStop/utils/logger.dart';
+import 'package:TrackYourStop/utils/string.util.dart';
 
 class FavoriteAppBar extends ConsumerWidget with PreferredSizeWidget {
   FavoriteAppBar({

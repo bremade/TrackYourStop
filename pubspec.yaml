@@ -1,4 +1,4 @@
-name: mvv_tracker
+name: TrackYourStop
 description: Track your favorite mvv stops.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

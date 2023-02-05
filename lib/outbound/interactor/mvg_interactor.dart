@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:mvv_tracker/outbound/models/departure_response.dart';
-import 'package:mvv_tracker/outbound/models/station_response.dart';
-import 'package:mvv_tracker/utils/list.util.dart';
-import 'package:mvv_tracker/utils/logger.dart';
-import 'package:mvv_tracker/utils/string.util.dart';
+import 'package:TrackYourStop/outbound/models/departure_response.dart';
+import 'package:TrackYourStop/outbound/models/station_response.dart';
+import 'package:TrackYourStop/utils/list.util.dart';
+import 'package:TrackYourStop/utils/logger.dart';
+import 'package:TrackYourStop/utils/string.util.dart';
 
 final logger = getLogger("MvgInteractor");
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mvv_tracker/utils/logger.dart';
-import 'package:mvv_tracker/shared/provider/app_bar_selection_provider.dart';
+import 'package:TrackYourStop/utils/logger.dart';
+import 'package:TrackYourStop/shared/provider/app_bar_selection_provider.dart';
 
 class BottomAppNavigationBar extends ConsumerWidget {
   BottomAppNavigationBar({

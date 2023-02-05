@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mvv_tracker/modules/favorites/provider/favorite_list_provider.dart';
+import 'package:TrackYourStop/modules/favorites/provider/favorite_list_provider.dart';
 
 class TabNavigationObserver extends AutoRouterObserver {
   /// Riverpod Instance

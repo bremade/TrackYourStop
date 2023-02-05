@@ -1,10 +1,10 @@
 import 'dart:collection';
 
-import 'package:mvv_tracker/modules/favorites/models/favorite.model.dart';
-import 'package:mvv_tracker/outbound/interactor/mvg_interactor.dart';
-import 'package:mvv_tracker/outbound/models/departure_response.dart';
-import 'package:mvv_tracker/utils/logger.dart';
-import 'package:mvv_tracker/utils/string.util.dart';
+import 'package:TrackYourStop/modules/favorites/models/favorite.model.dart';
+import 'package:TrackYourStop/outbound/interactor/mvg_interactor.dart';
+import 'package:TrackYourStop/outbound/models/departure_response.dart';
+import 'package:TrackYourStop/utils/logger.dart';
+import 'package:TrackYourStop/utils/string.util.dart';
 
 final logger = getLogger("DepartureControl");
 
