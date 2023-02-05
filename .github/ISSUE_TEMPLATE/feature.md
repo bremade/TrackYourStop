@@ -7,8 +7,6 @@ assignees: ''
 
 ---
 
-Epic: <Epic-Link>
-
 ### Description
 
 ### Tasks
