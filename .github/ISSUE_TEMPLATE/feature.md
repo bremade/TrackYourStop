@@ -1,8 +1,8 @@
 ---
 name: Feature
 about: Issues for new features
-title: ''
-labels: ''
+title: "[TYS-X] Placeholder"
+labels: feature
 assignees: ''
 
 ---

@@ -1,7 +1,7 @@
 ---
 name: Epic
 about: Issue for epics
-title: "[EPIC-X] Placeholdertitle"
+title: "[EPIC-X] Placeholder"
 labels: epic
 assignees: ''
 
