@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:TrackYourStop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:TrackYourStop/modules/favorites/provider/polled_departures_provider.dart';
 import 'package:TrackYourStop/modules/favorites/provider/selected_destinations_provider.dart';
@@ -41,7 +43,17 @@ class FavoritePage extends HookConsumerWidget {
           ref.watch(selectedTransportationTypesProvider);
       for (var transportType in selectedTransportationTypes) {
         InputChip actionChip = InputChip(
-          label: Text(transportType.toUpperCase()),
+          label: Text(""),
+          avatar: Container(
+              width: 35.0,
+              height: 17.0,
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: ExactAssetImage(getAssetForTransportationType(
+                          transportType.toUpperCase()))))),
+          deleteIcon: const Icon(Icons.remove_circle),
           onDeleted: () {
             ref
                 .read(selectedTransportationTypesProvider.notifier)
@@ -86,7 +98,24 @@ class FavoritePage extends HookConsumerWidget {
                       suggestionsCallback: MvgInteractor.getStationSuggestions,
                       itemBuilder: (context, StationResponse? suggestion) {
                         final stationResponse = suggestion!;
-                        return ListTile(title: Text(stationResponse.name));
+                        final List<ImageProvider> transportationTypeAssets =
+                            getAssetListForTransportationType(
+                                stationResponse.transportTypes);
+                        return ListTile(
+                            title: Text(stationResponse.name),
+                            leading: ConstrainedBox(
+                                constraints: const BoxConstraints(
+                                  minWidth: 10,
+                                  maxWidth: 50,
+                                  minHeight: 20,
+                                  maxHeight: 100,
+                                ),
+                                child: FlutterImageStack.providers(
+                                  providers: transportationTypeAssets,
+                                  totalCount: transportationTypeAssets.length,
+                                  itemCount: transportationTypeAssets.length,
+                                  itemBorderWidth: 1,
+                                )));
                       },
                       textFieldConfiguration: TextFieldConfiguration(
                           controller: ref.watch(stationControllerProvider),
@@ -149,7 +178,11 @@ class FavoritePage extends HookConsumerWidget {
                                           selectedTransportationTypesProvider));
                         },
                         itemBuilder: (context, String suggestion) {
-                          return ListTile(title: Text(suggestion));
+                          return ListTile(
+                              title: Image.asset(
+                                  getAssetForTransportationType(suggestion),
+                                  height: 20,
+                                  width: 10));
                         },
                         textFieldConfiguration: TextFieldConfiguration(
                             controller: transportationTypeController,
@@ -179,7 +212,7 @@ class FavoritePage extends HookConsumerWidget {
                 ),
                 // Future list view for destinations according to selected origin and transportation types
                 Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    padding: const EdgeInsets.only(top: 8.0),
                     child: FutureBuilder(
                         future: ref.watch(polledDeparturesProvider),
                         builder:
@@ -196,6 +229,7 @@ class FavoritePage extends HookConsumerWidget {
                               } else {
                                 final List<DepartureResponse> departures =
                                     snapshot.data;
+                                logger.i(departures.length);
                                 return ListView.builder(
                                     scrollDirection: Axis.vertical,
                                     shrinkWrap: true,
@@ -206,15 +240,25 @@ class FavoritePage extends HookConsumerWidget {
                                           selectedDestinations = ref.watch(
                                               selectedDestinationsProvider);
                                       return CheckboxListTile(
-                                        value: selectedDestinations
-                                            .contains(departures[index]),
-                                        onChanged: (bool? selected) {
-                                          onDestinationSelected(
-                                              selected!, departures[index]);
-                                        },
-                                        title:
-                                            Text(departures[index].destination),
-                                      );
+                                          value: selectedDestinations
+                                              .contains(departures[index]),
+                                          onChanged: (bool? selected) {
+                                            onDestinationSelected(
+                                                selected!, departures[index]);
+                                          },
+                                          title: Text(
+                                              departures[index].destination),
+                                          secondary: ConstrainedBox(
+                                              constraints: const BoxConstraints(
+                                                minWidth: 10,
+                                                maxWidth: 50,
+                                                minHeight: 20,
+                                                maxHeight: 100,
+                                              ),
+                                              child: Image.asset(
+                                                  getAssetForTransportationType(
+                                                      departures[index]
+                                                          .transportType))));
                                     });
                               }
                           }
