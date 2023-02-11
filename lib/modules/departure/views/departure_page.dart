@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:TrackYourStop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:TrackYourStop/constants/colors.dart';
@@ -32,7 +33,7 @@ class DeparturePage extends HookConsumerWidget {
       }
     }
 
-    Card buildCard(IconData line, String origin, String destination,
+    Card buildCard(String transportType, String origin, String destination,
             int arrivalTime) =>
         Card(
           elevation: 8.0,
@@ -45,18 +46,21 @@ class DeparturePage extends HookConsumerWidget {
                   contentPadding: const EdgeInsets.symmetric(
                       horizontal: 20.0, vertical: 10.0),
                   leading: Container(
-                    height: double.infinity,
-                    padding: const EdgeInsets.only(right: 12.0),
-                    decoration: const BoxDecoration(
-                        border: Border(
-                            right:
-                                BorderSide(width: 1.5, color: Colors.white24))),
-                    child: Icon(line, color: Colors.white),
-                  ),
+                      height: double.infinity,
+                      padding: const EdgeInsets.only(right: 12.0),
+                      decoration: const BoxDecoration(
+                          border: Border(
+                              right: BorderSide(
+                                  width: 1.5, color: Colors.white24))),
+                      // TODO TYS-3
+                      child: Image.asset(
+                          getAssetForTransportationType(transportType),
+                          height: 25,
+                          width: 50)),
                   title: Text(
-                    destination,
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                        destination,
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Row(
                     children: <Widget>[
@@ -86,7 +90,8 @@ class DeparturePage extends HookConsumerWidget {
         final stationDepartures = stationMap[stationName];
         if (stationDepartures != null) {
           final List<DepartureResponse> departures = stationDepartures;
-          departures.sort((a, b) => a.realtimeDepartureTime.compareTo(b.realtimeDepartureTime));
+          departures.sort((a, b) =>
+              a.realtimeDepartureTime.compareTo(b.realtimeDepartureTime));
           stationCards.add(
             // Add station name as divider
             Container(
@@ -104,7 +109,7 @@ class DeparturePage extends HookConsumerWidget {
           for (var stationDeparture in departures) {
             logger.d(stationDeparture.toJson());
             stationCards.add(buildCard(
-                Icons.train,
+                stationDeparture.transportType,
                 stationName,
                 stationDeparture.destination,
                 stationDeparture.realtimeDepartureTime));
@@ -156,12 +161,12 @@ class DeparturePage extends HookConsumerWidget {
 
     return Scaffold(
       body: RefreshIndicator(
-          child: buildBody(),
-          onRefresh: () {
-            // Refresh favorite provider and therefore main view data
-            return ref.read(favoriteListProvider.notifier).state =
-                FavoritesDatabase.instance.readAll();
-          },
+        child: buildBody(),
+        onRefresh: () {
+          // Refresh favorite provider and therefore main view data
+          return ref.read(favoriteListProvider.notifier).state =
+              FavoritesDatabase.instance.readAll();
+        },
       ),
       floatingActionButton: const CreateFavoriteFab(),
       bottomNavigationBar: BottomAppNavigationBar(),
