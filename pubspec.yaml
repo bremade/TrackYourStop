@@ -28,6 +28,7 @@ dependencies:
   english_words: ^4.0.0
   http: ^0.13.5
   flutter_typeahead: ^4.1.1
+  settings_ui: ^2.0.2
 
 dev_dependencies:
   flutter_test:

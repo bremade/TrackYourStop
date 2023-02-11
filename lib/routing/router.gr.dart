@@ -29,6 +29,12 @@ class _$AppRouter extends RootStackRouter {
         child: const FavoritePage(),
       );
     },
+    SettingsRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const SettingsPage(),
+      );
+    },
   };
 
   @override
@@ -40,6 +46,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           FavoriteRoute.name,
           path: '/favorite-page',
+        ),
+        RouteConfig(
+          SettingsRoute.name,
+          path: '/settings-page',
         ),
       ];
 }
@@ -66,4 +76,16 @@ class FavoriteRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'FavoriteRoute';
+}
+
+/// generated route for
+/// [SettingsPage]
+class SettingsRoute extends PageRouteInfo<void> {
+  const SettingsRoute()
+      : super(
+          SettingsRoute.name,
+          path: '/settings-page',
+        );
+
+  static const String name = 'SettingsRoute';
 }

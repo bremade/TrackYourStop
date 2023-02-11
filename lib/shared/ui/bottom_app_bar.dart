@@ -1,3 +1,5 @@
+import 'package:TrackYourStop/routing/router.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:TrackYourStop/utils/logger.dart';
@@ -10,14 +12,29 @@ class BottomAppNavigationBar extends ConsumerWidget {
 
   final logger = getLogger("BottomAppBar");
 
-  void _onIndexChange(int index, WidgetRef ref) {
-    ref.read(appBarSelectionProvider.notifier).state = index;
+  final pageMap = {
+    0: const DepartureRoute(),
+    1: const DepartureRoute(),
+    2: const SettingsRoute()
+  };
+
+  void _onIndexChange(BuildContext context,WidgetRef ref, int currentIndex, int selectedIndex) {
+    if (currentIndex != selectedIndex) {
+      // TODO: Remove this after implementation of news page
+      if (selectedIndex != 1) {
+        ref
+            .read(appBarSelectionProvider.notifier)
+            .state = selectedIndex;
+        final router = AutoRouter.of(context);
+        router.push(pageMap[selectedIndex] ?? const DepartureRoute());
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedIndex = ref.watch(appBarSelectionProvider);
-    logger.d("Selected Index: $selectedIndex");
+    final currentIndex = ref.watch(appBarSelectionProvider);
+    logger.d("Current Index: $currentIndex");
     return BottomNavigationBar(
       showSelectedLabels: false,
       showUnselectedLabels: false,
@@ -35,8 +52,8 @@ class BottomAppNavigationBar extends ConsumerWidget {
           label: 'Settings',
         ),
       ],
-      currentIndex: selectedIndex,
-      onTap: (index) => _onIndexChange(index, ref),
+      currentIndex: currentIndex,
+      onTap: (selectedIndex) => _onIndexChange(context, ref, currentIndex, selectedIndex),
     );
   }
 }
