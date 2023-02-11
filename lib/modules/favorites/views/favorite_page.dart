@@ -270,6 +270,7 @@ class FavoritePage extends HookConsumerWidget {
     }
 
     return Scaffold(
+      extendBody: true,
       appBar: FavoriteAppBar(),
       body: buildBody(),
     );

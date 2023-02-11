@@ -1,19 +1,8 @@
-import 'dart:collection';
-
-import 'package:TrackYourStop/utils/transportation_type.util.dart';
+import 'package:TrackYourStop/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:TrackYourStop/constants/colors.dart';
-import 'package:TrackYourStop/constants/departure_card_choices.dart';
-import 'package:TrackYourStop/modules/departure/control/departure_control.dart';
-import 'package:TrackYourStop/modules/favorites/database/favorites_database.dart';
-import 'package:TrackYourStop/modules/favorites/models/favorite.model.dart';
-import 'package:TrackYourStop/modules/favorites/provider/favorite_list_provider.dart';
-import 'package:TrackYourStop/modules/departure/ui/create_favorite_fab.dart';
-import 'package:TrackYourStop/modules/departure/ui/departure_card.dart';
-import 'package:TrackYourStop/outbound/models/departure_response.dart';
+import 'package:settings_ui/settings_ui.dart';
 import 'package:TrackYourStop/shared/ui/bottom_app_bar.dart';
-import 'package:TrackYourStop/utils/arrival_accent.util.dart';
 import 'package:TrackYourStop/utils/logger.dart';
 
 final logger = getLogger("SettingsPage");
@@ -21,11 +10,45 @@ final logger = getLogger("SettingsPage");
 class SettingsPage extends HookConsumerWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
+  void _switchTheme(WidgetRef ref, bool isActive) {
+    final ThemeMode theme = isActive ? ThemeMode.dark: ThemeMode.light;
+    setUiStyle(theme);
+    ref.read(themeProvider.notifier).state = theme;
+  }
+
+  Widget _buildSettings(BuildContext context, WidgetRef ref) {
+    return Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: SettingsList(
+          darkTheme: darkSettings,
+          lightTheme: lightSettings,
+          sections: [
+            SettingsSection(
+              title: const Text('Common'),
+              tiles: <SettingsTile>[
+                SettingsTile.navigation(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Language'),
+                  value: const Text('English'),
+                ),
+                SettingsTile.switchTile(
+                  activeSwitchColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+                  onToggle: (isActive) => _switchTheme(ref, isActive),
+                  initialValue: ref.watch(themeProvider) == ThemeMode.dark,
+                  leading: const Icon(Icons.format_paint),
+                  title: const Text('Enable dark mode'),
+                ),
+              ],
+            ),
+          ],
+        ));
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return Scaffold(
-      body: Container(),
+      extendBody: true,
+      body: _buildSettings(context, ref),
       bottomNavigationBar: BottomAppNavigationBar(),
     );
   }
