@@ -69,7 +69,7 @@ SettingsThemeData darkSettings = SettingsThemeData(
 );
 
 /////////////////////////////////////
-///          Light Them e         ///
+///          Light Theme          ///
 /////////////////////////////////////
 
 ThemeData lightTheme = ThemeData(

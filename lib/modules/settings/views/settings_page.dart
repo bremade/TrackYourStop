@@ -11,14 +11,15 @@ class SettingsPage extends HookConsumerWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   void _switchTheme(WidgetRef ref, bool isActive) {
-    final ThemeMode theme = isActive ? ThemeMode.dark: ThemeMode.light;
+    final ThemeMode theme = isActive ? ThemeMode.dark : ThemeMode.light;
     setUiStyle(theme);
     ref.read(themeProvider.notifier).state = theme;
   }
 
   Widget _buildSettings(BuildContext context, WidgetRef ref) {
+    final bool isDark = ref.watch(themeProvider) == ThemeMode.dark;
     return Padding(
-        padding: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 20),
         child: SettingsList(
           darkTheme: darkSettings,
           lightTheme: lightSettings,
@@ -32,11 +33,14 @@ class SettingsPage extends HookConsumerWidget {
                   value: const Text('English'),
                 ),
                 SettingsTile.switchTile(
-                  activeSwitchColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+                  activeSwitchColor: Theme.of(context)
+                      .floatingActionButtonTheme
+                      .backgroundColor,
                   onToggle: (isActive) => _switchTheme(ref, isActive),
-                  initialValue: ref.watch(themeProvider) == ThemeMode.dark,
-                  leading: const Icon(Icons.format_paint),
-                  title: const Text('Enable dark mode'),
+                  initialValue: isDark,
+                  leading:
+                      Icon(isDark ? Icons.brightness_2 : Icons.wb_sunny),
+                  title: const Text('Switch theme'),
                 ),
               ],
             ),
