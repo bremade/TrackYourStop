@@ -79,8 +79,9 @@ class FavoritePage extends HookConsumerWidget {
           TextEditingController();
 
       return Padding(
-          padding: const EdgeInsets.only(top: 30.0, left: 32.0, right: 32.0),
-          child: SingleChildScrollView(
+        padding: const EdgeInsets.only(top: 30.0, left: 32.0, right: 32.0),
+        child: SizedBox(
+            height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
                 // Station selection autocomplete field
@@ -211,8 +212,7 @@ class FavoritePage extends HookConsumerWidget {
                   ),
                 ),
                 // Future list view for destinations according to selected origin and transportation types
-                Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
+                Expanded(
                     child: FutureBuilder(
                         future: ref.watch(polledDeparturesProvider),
                         builder:
@@ -232,6 +232,7 @@ class FavoritePage extends HookConsumerWidget {
                                 logger.i(departures.length);
                                 return ListView.builder(
                                     scrollDirection: Axis.vertical,
+                                    primary: true,
                                     shrinkWrap: true,
                                     itemCount: departures.length,
                                     itemBuilder:
@@ -264,8 +265,8 @@ class FavoritePage extends HookConsumerWidget {
                           }
                         }))
               ],
-            ),
-          ));
+            )),
+      );
     }
 
     return Scaffold(
