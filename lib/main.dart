@@ -13,16 +13,13 @@ import 'package:TrackYourStop/shared/provider/app_state.provider.dart';
 import 'package:TrackYourStop/utils/app_theme.dart';
 import 'package:TrackYourStop/utils/logger.dart';
 
+final logger = getLogger("Main");
+final _appRouter = AppRouter();
+
 void main() async {
   Logger.level = Level.debug;
   runApp(const ProviderScope(child: HaltestellenTrackerApp()));
-  /*await FavoritesDatabase.instance.create(
-      const Favorite(origin: "Böhmerwaldplatz", originGlobalId: "de:09162:560", types: "UBAHN,BUS", destinations: "Arabellapark,Theresienwiese"));
-  await FavoritesDatabase.instance.create(
-      const Favorite(origin: "Hauptbahnhof", originGlobalId: "de:09162:6", types: "UBAHN,TRAM,SBAHN", destinations: "Geltendorf,Amalienburgstraße,Freising"));*/
 }
-
-final logger = getLogger("Main");
 
 class HaltestellenTrackerApp extends ConsumerStatefulWidget {
   const HaltestellenTrackerApp({super.key});
@@ -73,15 +70,14 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp>
 
   @override
   Widget build(BuildContext context) {
-    final router = AppRouter();
     return MaterialApp.router(
       title: 'Haltestellen Tracker',
       debugShowCheckedModeBanner: false,
       themeMode: ref.watch(themeProvider),
       darkTheme: darkTheme,
       theme: lightTheme,
-      routeInformationParser: router.defaultRouteParser(),
-      routerDelegate: router.delegate(
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      routerDelegate: _appRouter.delegate(
         navigatorObservers: () => [TabNavigationObserver(ref: ref)],
       ),
     );
