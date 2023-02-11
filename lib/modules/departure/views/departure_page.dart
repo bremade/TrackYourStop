@@ -160,7 +160,7 @@ class DeparturePage extends HookConsumerWidget {
     }
 
     return Scaffold(
-      body: RefreshIndicator(
+        body: RefreshIndicator(
         child: buildBody(),
         onRefresh: () {
           // Refresh favorite provider and therefore main view data
