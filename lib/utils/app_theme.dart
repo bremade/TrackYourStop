@@ -45,9 +45,12 @@ ThemeData darkTheme = ThemeData(
       backgroundColor: darkLightPrimaryColor,
       deleteIconColor: Colors.white,
       elevation: 6.0,
+      padding: const EdgeInsets.only(
+        left: 6.0
+      ),
       labelPadding: const EdgeInsets.only(
-        left: 2.0,
-        right: 2.0
+        left: 0,
+        right: 0
       ),
       side: const BorderSide(style: BorderStyle.none),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
