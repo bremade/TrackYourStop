@@ -4,7 +4,6 @@
 APPLY_FIXES: all # all, none, or list of linter keys
 ENABLE:
   - ACTION
-  - DART
   - GROOVY
   - HTML
   - JSON
