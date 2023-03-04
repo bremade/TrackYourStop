@@ -35,6 +35,7 @@ dependencies:
   flutter_image_stack: ^0.0.6
 
 dev_dependencies:
+  # Testing
   flutter_test:
     sdk: flutter
   # Linter
