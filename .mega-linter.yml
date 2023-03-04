@@ -1,0 +1,30 @@
+# Configuration file for MegaLinter
+# See all available variables at https://megalinter.io/configuration/ and in linters documentation
+
+APPLY_FIXES: all # all, none, or list of linter keys
+ENABLE:
+  - ACTION
+  - GROOVY
+  - HTML
+  - JSON
+  - MARKDOWN
+  - XML
+  - YAML
+DISABLE_LINTERS:
+  - GIT_GIT_DIFF
+  - SPELL_CSPELL
+EXCLUDED_DIRECTORIES:
+  - .dart_tool
+  - .generateRoutes
+  - .idea
+  - android
+  - assets
+  - build
+  - ios
+  - linux
+  - macos
+  - megalinter-reports
+  - web
+SHOW_ELAPSED_TIME: true
+FILEIO_REPORTER: false
+CLEAR_REPORT_FOLDER: true

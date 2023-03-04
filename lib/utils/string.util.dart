@@ -5,7 +5,7 @@ String convertArrayToString(List<String> array, {String separator = strSeparator
   for (int i = 0; i < array.length; i++) {
     str = str + array[i];
     if (i < array.length - 1) {
-      str = str + strSeparator;
+      str = str + separator;
     }
   }
   return str;
