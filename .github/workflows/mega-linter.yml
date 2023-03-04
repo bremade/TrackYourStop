@@ -24,8 +24,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      workflows: write
     steps:
       # Git Checkout
       - name: Checkout Code
