@@ -1,20 +1,19 @@
-import 'dart:async';
-
-import 'package:TrackYourStop/utils/transportation_type.util.dart';
+import 'package:track_your_stop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:TrackYourStop/modules/favorites/provider/polled_departures_provider.dart';
-import 'package:TrackYourStop/modules/favorites/provider/selected_destinations_provider.dart';
-import 'package:TrackYourStop/modules/favorites/provider/selected_origin_provider.dart';
-import 'package:TrackYourStop/modules/favorites/provider/selected_transportation_types_provider.dart';
-import 'package:TrackYourStop/modules/favorites/provider/station_controller_provider.dart';
-import 'package:TrackYourStop/modules/favorites/ui/favorite_app_bar.dart';
-import 'package:TrackYourStop/outbound/interactor/mvg_interactor.dart';
-import 'package:TrackYourStop/outbound/models/departure_response.dart';
-import 'package:TrackYourStop/outbound/models/station_response.dart';
-import 'package:TrackYourStop/utils/logger.dart';
+import 'package:track_your_stop/modules/favorites/provider/polled_departures_provider.dart';
+import 'package:track_your_stop/modules/favorites/provider/selected_destinations_provider.dart';
+import 'package:track_your_stop/modules/favorites/provider/selected_origin_provider.dart';
+import 'package:track_your_stop/modules/favorites/provider/selected_transportation_types_provider.dart';
+import 'package:track_your_stop/modules/favorites/provider/station_controller_provider.dart';
+import 'package:track_your_stop/modules/favorites/ui/favorite_app_bar.dart';
+import 'package:track_your_stop/outbound/interactor/mvg_interactor.dart';
+import 'package:track_your_stop/outbound/models/departure_response.dart';
+import 'package:track_your_stop/outbound/models/station_response.dart';
+import 'package:track_your_stop/utils/logger.dart';
 
 final logger = getLogger("FavoritePage");
 
@@ -43,7 +42,7 @@ class FavoritePage extends HookConsumerWidget {
           ref.watch(selectedTransportationTypesProvider);
       for (var transportType in selectedTransportationTypes) {
         InputChip actionChip = InputChip(
-          label: Text(""),
+          label: const Text(""),
           avatar: Container(
               width: 35.0,
               height: 17.0,
@@ -229,10 +228,7 @@ class FavoritePage extends HookConsumerWidget {
                               } else {
                                 final List<DepartureResponse> departures =
                                     snapshot.data;
-                                logger.i(departures.length);
                                 return ListView.builder(
-                                    scrollDirection: Axis.vertical,
-                                    primary: true,
                                     shrinkWrap: true,
                                     itemCount: departures.length,
                                     itemBuilder:
@@ -270,9 +266,10 @@ class FavoritePage extends HookConsumerWidget {
     }
 
     return Scaffold(
-      extendBody: true,
       appBar: FavoriteAppBar(),
-      body: buildBody(),
+      body: Scrollable(
+        viewportBuilder: (BuildContext context, ViewportOffset position) => buildBody(),
+      ),
     );
   }
 }

@@ -1,9 +1,9 @@
-import 'package:TrackYourStop/utils/app_theme.dart';
+import 'package:track_your_stop/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
-import 'package:TrackYourStop/shared/ui/bottom_app_bar.dart';
-import 'package:TrackYourStop/utils/logger.dart';
+import 'package:track_your_stop/shared/ui/bottom_app_bar.dart';
+import 'package:track_your_stop/utils/logger.dart';
 
 final logger = getLogger("SettingsPage");
 

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:TrackYourStop/modules/favorites/provider/favorite_list_provider.dart';
+import 'package:track_your_stop/modules/favorites/provider/favorite_list_provider.dart';
 
 class TabNavigationObserver extends AutoRouterObserver {
   /// Riverpod Instance
@@ -21,7 +21,8 @@ class TabNavigationObserver extends AutoRouterObserver {
       TabPageRoute previousRoute,
       ) async {
     if (route.name == 'DepartureRoute') {
-      ref.refresh(favoriteListProvider);
+      return ref.refresh(favoriteListProvider);
     }
+    return;
   }
 }

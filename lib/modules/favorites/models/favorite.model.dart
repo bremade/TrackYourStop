@@ -56,5 +56,5 @@ class Favorite {
           types: types ?? this.types,
           origin: origin ?? this.origin,
           originGlobalId: originGlobalId ?? this.originGlobalId,
-          destination: destinations ?? this.destination);
+          destination: destinations ?? destination);
 }

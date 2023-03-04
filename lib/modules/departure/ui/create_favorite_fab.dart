@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:TrackYourStop/routing/router.dart';
+import 'package:track_your_stop/routing/router.dart';
 
 class CreateFavoriteFab extends ConsumerWidget {
   const CreateFavoriteFab({

@@ -11,13 +11,13 @@ class CustomLogPrinter extends LogPrinter {
   CustomLogPrinter(this.className);
 
   @override
-  List<String> log(LogEvent logEvent) {
-    var color = PrettyPrinter.levelColors[logEvent.level];
-    var emoji = PrettyPrinter.levelEmojis[logEvent.level];
+  List<String> log(LogEvent event) {
+    var color = PrettyPrinter.levelColors[event.level];
+    var emoji = PrettyPrinter.levelEmojis[event.level];
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('dd-MM-yyyy kk:mm:ss.SSS').format(now);
     return [
-      color!('$formattedDate $emoji - [$className]: ${logEvent.message}')
+      color!('$formattedDate $emoji - [$className]: ${event.message}')
     ];
   }
 }

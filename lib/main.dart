@@ -4,14 +4,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:TrackYourStop/modules/favorites/database/favorites_database.dart';
-import 'package:TrackYourStop/modules/favorites/models/favorite.model.dart';
-import 'package:TrackYourStop/modules/favorites/ui/favorite_app_bar.dart';
-import 'package:TrackYourStop/routing/router.dart';
-import 'package:TrackYourStop/routing/tab_navigation_observer.dart';
-import 'package:TrackYourStop/shared/provider/app_state.provider.dart';
-import 'package:TrackYourStop/utils/app_theme.dart';
-import 'package:TrackYourStop/utils/logger.dart';
+import 'package:track_your_stop/routing/router.dart';
+import 'package:track_your_stop/routing/tab_navigation_observer.dart';
+import 'package:track_your_stop/shared/provider/app_state.provider.dart';
+import 'package:track_your_stop/utils/app_theme.dart';
+import 'package:track_your_stop/utils/logger.dart';
 
 final logger = getLogger("Main");
 final _appRouter = AppRouter();

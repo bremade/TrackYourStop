@@ -1,7 +1,7 @@
-name: TrackYourStop
+name: track_your_stop
 description: Track your favorite mvv stops.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -25,32 +25,40 @@ dependencies:
   sqflite: ^2.2.2
   # Toasts
   fluttertoast: ^8.1.2
-  english_words: ^4.0.0
+  # Http requests
   http: ^0.13.5
+  # List builder for http requests
   flutter_typeahead: ^4.1.1
+  # Settings ui framework
   settings_ui: ^2.0.2
+  # UI Image bubbles
+  flutter_image_stack: ^0.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   # Linter
   flutter_lints: ^2.0.0
+  # Page routing
+  auto_route_generator: ^5.0.3
   # Generate route files
   build_runner: ^2.3.2
-  http_parser: ^4.0.0
-  grpc: ^3.1.0
-  auto_route_generator: ^5.0.3
+  # App icon helper
   flutter_launcher_icons: ^0.11.0
-  flutter_svg: ^1.1.6
-  flutter_image_stack: ^0.0.6
+  # Http requests
+  grpc: ^3.1.0
+  # Http response parser
+  http_parser: ^4.0.0
 
-# The following section is specific to Flutter packages.
+# Flutter related packages
 flutter:
   # Enable material design
   uses-material-design: true
+  # Add assets
   assets:
     - assets/images/
 
+# Flutter app icon
 flutter_icons:
   android: true
   ios: true

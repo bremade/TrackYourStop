@@ -1,4 +1,4 @@
-import 'package:TrackYourStop/utils/logger.dart';
+import 'package:track_your_stop/utils/logger.dart';
 import 'package:flutter/material.dart';
 
 var defaultAsset = "assets/images/ubahn.png";

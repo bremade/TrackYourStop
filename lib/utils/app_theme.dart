@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:TrackYourStop/constants/colors.dart';
+import 'package:track_your_stop/constants/colors.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 final themeProvider = StateProvider<ThemeMode>((ref) {
