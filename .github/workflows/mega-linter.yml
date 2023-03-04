@@ -3,6 +3,8 @@
 # More info at https://megalinter.io
 name: MegaLinter
 
+run-name: ${{ github.workflow }}-${{ github.ref }}
+
 on:
   # Trigger mega-linter at every push. Action will also be visible from Pull Requests to master
   push: # Comment this line to trigger action only on pull-requests (not recommended if you don't pay for GH Actions)
@@ -16,12 +18,11 @@ env: # Comment env block if you do not want to apply fixes
   APPLY_FIXES_MODE: commit # If APPLY_FIXES is used, defines if the fixes are directly committed (commit) or posted in a PR (pull_request)
 
 concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
-    name: MegaLinter
     runs-on: ubuntu-latest
     steps:
       # Git Checkout

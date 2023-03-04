@@ -5,16 +5,21 @@
 
 name: Dart
 
+run-name: ${{ github.workflow }}-${{ github.ref }}
+
 on:
   push:
-    branches: [ "master", "feature/*" ]
+    branches: ["master", "feature/*"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
