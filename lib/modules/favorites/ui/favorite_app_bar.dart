@@ -12,7 +12,7 @@ import 'package:track_your_stop/modules/favorites/provider/station_controller_pr
 import 'package:track_your_stop/utils/logger.dart';
 import 'package:track_your_stop/utils/string.util.dart';
 
-class FavoriteAppBar extends ConsumerWidget with PreferredSizeWidget {
+class FavoriteAppBar extends ConsumerWidget implements PreferredSizeWidget {
   FavoriteAppBar({
     Key? key,
   }) : super(key: key);
