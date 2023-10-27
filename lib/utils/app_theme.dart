@@ -7,7 +7,8 @@ import 'package:settings_ui/settings_ui.dart';
 
 final themeProvider = StateProvider<ThemeMode>((ref) {
   final ThemeMode themeMode =
-      SchedulerBinding.instance.window.platformBrightness == Brightness.dark
+      SchedulerBinding.instance.platformDispatcher.platformBrightness ==
+              Brightness.dark
           ? ThemeMode.dark
           : ThemeMode.light;
   setUiStyle(themeMode);

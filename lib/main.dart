@@ -46,6 +46,8 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp>
         logger.d("[APP STATE] detached");
         ref.watch(appStateProvider.notifier).state = AppStateEnum.detached;
         break;
+      case AppLifecycleState.hidden:
+        break;
     }
   }
 

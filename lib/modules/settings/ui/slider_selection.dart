@@ -12,6 +12,7 @@ class SliderSelection extends StatefulWidget {
 }
 
 class SliderSelectionState extends State<SliderSelection> {
+  // ignore: unused_field
   double _sliderValue = 1;
 
   Widget _getSlider(BuildContext context) {
