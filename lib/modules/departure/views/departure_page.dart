@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:track_your_stop/modules/settings/provider/departure_settings_provider.dart';
 import 'package:track_your_stop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -51,15 +52,14 @@ class DeparturePage extends HookConsumerWidget {
                           border: Border(
                               right: BorderSide(
                                   width: 1.5, color: Colors.white24))),
-                      // TODO TYS-3
                       child: Image.asset(
                           getAssetForTransportationType(transportType),
                           height: 25,
                           width: 50)),
                   title: Text(
-                        destination,
-                        style: const TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+                    destination,
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Row(
                     children: <Widget>[
@@ -132,9 +132,10 @@ class DeparturePage extends HookConsumerWidget {
     Widget buildBody() {
       // Retrieve favorites from database
       Future<List<Favorite>> favorites = ref.watch(favoriteListProvider);
+      int departureCountSetting = ref.watch(departureSettingsProvider);
       // Build map that maps origin station maps to its departures
       Future<HashMap<String, List<DepartureResponse>>> stationMapFuture =
-          buildStationMap(favorites);
+          buildStationMap(favorites, departureCountSetting);
       return FutureBuilder(
           future: stationMapFuture,
           builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -159,7 +160,7 @@ class DeparturePage extends HookConsumerWidget {
     }
 
     return Scaffold(
-        body: RefreshIndicator(
+      body: RefreshIndicator(
         child: buildBody(),
         onRefresh: () {
           // Refresh favorite provider and therefore main view data
