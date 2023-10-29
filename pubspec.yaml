@@ -22,7 +22,7 @@ dependencies:
   # Routing
   auto_route: ^5.0.3
   # Database storage
-  sqflite: ^2.2.2
+  sqflite: ^2.2.8+4
   # Toasts
   fluttertoast: ^8.1.2
   # Http requests
