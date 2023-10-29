@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   # iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
   # Logging
   logger: ^1.1.0
   # Date formatting
