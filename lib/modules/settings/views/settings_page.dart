@@ -60,9 +60,8 @@ class SettingsPage extends HookConsumerWidget {
                   value: const Text('English'),
                 ),
                 SettingsTile.switchTile(
-                  activeSwitchColor: Theme.of(context)
-                      .floatingActionButtonTheme
-                      .backgroundColor,
+                  activeSwitchColor:
+                      Theme.of(context).toggleButtonsTheme.selectedColor,
                   onToggle: (isActive) => _switchTheme(ref, isActive),
                   initialValue: isDark,
                   leading: Icon(isDark ? Icons.brightness_2 : Icons.wb_sunny),

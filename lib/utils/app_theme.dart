@@ -17,100 +17,77 @@ final themeProvider = StateProvider<ThemeMode>((ref) {
 
 void setUiStyle(final ThemeMode configuredMode) {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor:
-          configuredMode == ThemeMode.dark ? darkStatusBar : statusBar,
-      systemNavigationBarColor:
-          configuredMode == ThemeMode.dark ? darkStatusBar : statusBar));
+      statusBarColor: configuredMode == ThemeMode.dark
+          ? secondaryContainerColorDark
+          : secondaryContainerColor,
+      systemNavigationBarColor: configuredMode == ThemeMode.dark
+          ? secondaryContainerColorDark
+          : secondaryContainerColor));
 }
 
 /////////////////////////////////////
 ///           Dark Theme          ///
 /////////////////////////////////////
-
 ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    primaryColor: darkPrimaryColor,
-    scaffoldBackgroundColor: darkBackgroundColor,
-    hintColor: Colors.grey[600],
+    colorScheme:
+        ColorScheme.fromSeed(brightness: Brightness.dark, seedColor: themeSeed),
     fontFamily: 'WorkSans',
-    appBarTheme: const AppBarTheme(
-        //elevation: 2.0,
-        color: Color(0xff616d8f)),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: darkBackgroundColor,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: darkLightPrimaryColor),
-    floatingActionButtonTheme:
-        FloatingActionButtonThemeData(backgroundColor: darkSecondaryColor),
+    appBarTheme: AppBarTheme(
+        titleTextStyle: TextStyle(color: onSecondaryContainerColorDark),
+        color: secondaryContainerColorDark),
     chipTheme: ChipThemeData(
-      backgroundColor: darkLightPrimaryColor,
-      deleteIconColor: Colors.white,
+      backgroundColor: secondaryContainerColorDark,
+      deleteIconColor: onSecondaryContainerColorDark,
       elevation: 6.0,
       padding: const EdgeInsets.only(left: 6.0),
       labelPadding: const EdgeInsets.only(left: 0, right: 0),
       side: const BorderSide(style: BorderStyle.none),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
     ),
-    checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateProperty.all<Color>(darkLightPrimaryColor)));
+    toggleButtonsTheme:
+        ToggleButtonsThemeData(selectedColor: primaryColorDark));
 
 SettingsThemeData darkSettings = SettingsThemeData(
-  settingsListBackground: darkBackgroundColor,
-  trailingTextColor: Colors.white,
-  dividerColor: Colors.white,
-  tileHighlightColor: Colors.white,
-  titleTextColor: Colors.white,
-  leadingIconsColor: Colors.white,
-  tileDescriptionTextColor: Colors.white,
-  settingsTileTextColor: Colors.white,
-  inactiveTitleColor: darkLightPrimaryColor,
-  inactiveSubtitleColor: darkLightPrimaryColor,
-);
+    settingsListBackground: backgroundColorDark,
+    settingsSectionBackground: secondaryContainerColorDark,
+    trailingTextColor: onSecondaryContainerColorDark,
+    dividerColor: onSecondaryContainerColorDark,
+    tileHighlightColor: onSecondaryContainerColorDark,
+    titleTextColor: onSecondaryContainerColorDark,
+    leadingIconsColor: onSecondaryContainerColorDark,
+    tileDescriptionTextColor: onSecondaryContainerColorDark,
+    settingsTileTextColor: onSecondaryContainerColorDark);
 
 /////////////////////////////////////
 ///          Light Theme          ///
 /////////////////////////////////////
-
 ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    primaryColor: primaryColor,
-    scaffoldBackgroundColor: backgroundColor,
-    hintColor: Colors.grey[600],
+    colorScheme: ColorScheme.fromSeed(seedColor: themeSeed),
     fontFamily: 'WorkSans',
-    appBarTheme: const AppBarTheme(
-        //elevation: 2.0,
-        color: Color(0xffbcaaa4)),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: backgroundColor,
-        selectedItemColor: darkBackgroundColor,
-        unselectedItemColor: secondaryColor),
-    floatingActionButtonTheme:
-        FloatingActionButtonThemeData(backgroundColor: secondaryColor),
+    appBarTheme: AppBarTheme(
+        titleTextStyle: TextStyle(color: onSecondaryContainerColor),
+        color: secondaryContainerColor),
     chipTheme: ChipThemeData(
-      backgroundColor: statusBar,
-      deleteIconColor: secondaryColor,
+      backgroundColor: secondaryContainerColor,
+      deleteIconColor: onSecondaryContainerColor,
       elevation: 6.0,
       padding: const EdgeInsets.only(left: 6.0),
       labelPadding: const EdgeInsets.only(left: 0, right: 0),
       side: const BorderSide(style: BorderStyle.none),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-    ),
-    checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateProperty.all<Color>(secondaryColor)));
+    ));
 
 SettingsThemeData lightSettings = SettingsThemeData(
-  settingsListBackground: backgroundColor,
-  trailingTextColor: primaryTextColor,
-  dividerColor: primaryTextColor,
-  tileHighlightColor: primaryTextColor,
-  titleTextColor: primaryTextColor,
-  leadingIconsColor: primaryTextColor,
-  tileDescriptionTextColor: primaryTextColor,
-  settingsTileTextColor: primaryTextColor,
-  inactiveTitleColor: secondaryColor,
-  inactiveSubtitleColor: secondaryColor,
-);
+    settingsListBackground: backgroundColor,
+    settingsSectionBackground: secondaryContainerColor,
+    trailingTextColor: onSecondaryContainerColor,
+    dividerColor: onSecondaryContainerColor,
+    tileHighlightColor: onSecondaryContainerColor,
+    titleTextColor: onSecondaryContainerColor,
+    leadingIconsColor: onSecondaryContainerColor,
+    tileDescriptionTextColor: onSecondaryContainerColor,
+    settingsTileTextColor: onSecondaryContainerColor);
