@@ -1,3 +1,4 @@
+import 'package:track_your_stop/constants/colors.dart';
 import 'package:track_your_stop/modules/settings/provider/departure_settings_provider.dart';
 import 'package:track_your_stop/modules/settings/ui/slider_selection.dart';
 import 'package:track_your_stop/utils/app_theme.dart';
@@ -60,9 +61,8 @@ class SettingsPage extends HookConsumerWidget {
                   value: const Text('English'),
                 ),
                 SettingsTile.switchTile(
-                  activeSwitchColor: Theme.of(context)
-                      .floatingActionButtonTheme
-                      .backgroundColor,
+                  activeSwitchColor:
+                      Theme.of(context).toggleButtonsTheme.selectedColor,
                   onToggle: (isActive) => _switchTheme(ref, isActive),
                   initialValue: isDark,
                   leading: Icon(isDark ? Icons.brightness_2 : Icons.wb_sunny),

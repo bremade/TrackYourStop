@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:track_your_stop/modules/settings/provider/departure_settings_provider.dart';
+import 'package:track_your_stop/utils/app_theme.dart';
 import 'package:track_your_stop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -34,52 +35,73 @@ class DeparturePage extends HookConsumerWidget {
     }
 
     Card buildCard(String transportType, String origin, String destination,
-            int arrivalTime) =>
-        Card(
-          elevation: 8.0,
-          margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          child: Container(
+        int arrivalTime) {
+      final isDarkMode = ref.watch(themeProvider) == ThemeMode.dark;
+      final containerColor =
+          isDarkMode ? secondaryContainerColorDark : secondaryContainerColor;
+      final textColor = isDarkMode
+          ? onSecondaryContainerColorDark
+          : onSecondaryContainerColor;
+      final accentColor = getAccentColorForTime(arrivalTime);
+
+      return Card(
+        elevation: 0.0,
+        margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: containerColor,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+              vertical: 10.0,
+            ),
+            leading: Container(
+              height: double.infinity,
+              padding: const EdgeInsets.only(right: 12.0),
               decoration: BoxDecoration(
-                  color: darkPrimaryColor,
-                  borderRadius: BorderRadius.circular(10)),
-              child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 10.0),
-                  leading: Container(
-                      height: double.infinity,
-                      padding: const EdgeInsets.only(right: 12.0),
-                      decoration: const BoxDecoration(
-                          border: Border(
-                              right: BorderSide(
-                                  width: 1.5, color: Colors.white24))),
-                      child: Image.asset(
-                          getAssetForTransportationType(transportType),
-                          height: 25,
-                          width: 50)),
-                  title: Text(
-                    destination,
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Row(
-                    children: <Widget>[
-                      Icon(Icons.linear_scale,
-                          color: getAccentColorForTime(arrivalTime)),
-                      Text(" $arrivalTime min",
-                          style: const TextStyle(color: Colors.white))
-                    ],
-                  ),
-                  trailing: PopupMenuButton(
-                      itemBuilder: (BuildContext context) {
-                        return DepartureCardChoices.choices
-                            .map((String choice) {
-                          return PopupMenuItem(
-                              value: choice, child: Text(choice));
-                        }).toList();
-                      },
-                      onSelected: (choice) =>
-                          choiceAction(choice, origin, destination)))),
-        );
+                border: Border(
+                  right: BorderSide(width: 1.5, color: textColor),
+                ),
+              ),
+              child: Image.asset(
+                getAssetForTransportationType(transportType),
+                height: 25,
+                width: 50,
+              ),
+            ),
+            title: Text(
+              destination,
+              style: TextStyle(
+                color: textColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.linear_scale,
+                  color: accentColor,
+                ),
+                Text(
+                  " $arrivalTime min",
+                  style: TextStyle(color: textColor),
+                ),
+              ],
+            ),
+            trailing: PopupMenuButton(
+              itemBuilder: (BuildContext context) {
+                return DepartureCardChoices.choices.map((String choice) {
+                  return PopupMenuItem(value: choice, child: Text(choice));
+                }).toList();
+              },
+              onSelected: (choice) => choiceAction(choice, origin, destination),
+            ),
+          ),
+        ),
+      );
+    }
 
     ListView buildListView(
         BuildContext context, Map<String, List<DepartureResponse>> stationMap) {

@@ -18,13 +18,12 @@ class BottomAppNavigationBar extends ConsumerWidget {
     2: const SettingsRoute()
   };
 
-  void _onIndexChange(BuildContext context,WidgetRef ref, int currentIndex, int selectedIndex) {
+  void _onIndexChange(BuildContext context, WidgetRef ref, int currentIndex,
+      int selectedIndex) {
     if (currentIndex != selectedIndex) {
       // TODO: Remove this after implementation of news page
       if (selectedIndex != 1) {
-        ref
-            .read(appBarSelectionProvider.notifier)
-            .state = selectedIndex;
+        ref.read(appBarSelectionProvider.notifier).state = selectedIndex;
         final router = AutoRouter.of(context);
         router.push(pageMap[selectedIndex] ?? const DepartureRoute());
       }
@@ -36,8 +35,8 @@ class BottomAppNavigationBar extends ConsumerWidget {
     final currentIndex = ref.watch(appBarSelectionProvider);
     logger.d("Current Index: $currentIndex");
     return BottomNavigationBar(
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.train),
@@ -53,7 +52,8 @@ class BottomAppNavigationBar extends ConsumerWidget {
         ),
       ],
       currentIndex: currentIndex,
-      onTap: (selectedIndex) => _onIndexChange(context, ref, currentIndex, selectedIndex),
+      onTap: (selectedIndex) =>
+          _onIndexChange(context, ref, currentIndex, selectedIndex),
     );
   }
 }
