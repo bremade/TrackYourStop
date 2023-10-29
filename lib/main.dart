@@ -73,8 +73,8 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp>
       title: 'Haltestellen Tracker',
       debugShowCheckedModeBanner: false,
       themeMode: ref.watch(themeProvider),
-      darkTheme: darkThemeCustom,
-      theme: lightThemeCustom,
+      darkTheme: darkTheme,
+      theme: lightTheme,
       routeInformationParser: _appRouter.defaultRouteParser(),
       routerDelegate: _appRouter.delegate(
         navigatorObservers: () => [TabNavigationObserver(ref: ref)],

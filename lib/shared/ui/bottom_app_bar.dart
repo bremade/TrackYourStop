@@ -35,8 +35,6 @@ class BottomAppNavigationBar extends ConsumerWidget {
     final currentIndex = ref.watch(appBarSelectionProvider);
     logger.d("Current Index: $currentIndex");
     return BottomNavigationBar(
-      showSelectedLabels: true,
-      showUnselectedLabels: true,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.train),

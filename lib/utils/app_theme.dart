@@ -28,11 +28,11 @@ void setUiStyle(final ThemeMode configuredMode) {
 /////////////////////////////////////
 ///           Dark Theme          ///
 /////////////////////////////////////
-ThemeData darkThemeCustom = ThemeData(
+ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    colorScheme: ColorScheme.fromSeed(
-        brightness: Brightness.dark, seedColor: const Color(0xFF2196F3)),
+    colorScheme:
+        ColorScheme.fromSeed(brightness: Brightness.dark, seedColor: themeSeed),
     fontFamily: 'WorkSans',
     appBarTheme: AppBarTheme(
         titleTextStyle: TextStyle(color: onSecondaryContainerColorDark),
@@ -63,10 +63,10 @@ SettingsThemeData darkSettings = SettingsThemeData(
 /////////////////////////////////////
 ///          Light Theme          ///
 /////////////////////////////////////
-ThemeData lightThemeCustom = ThemeData(
+ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2196F3)),
+    colorScheme: ColorScheme.fromSeed(seedColor: themeSeed),
     fontFamily: 'WorkSans',
     appBarTheme: AppBarTheme(
         titleTextStyle: TextStyle(color: onSecondaryContainerColor),

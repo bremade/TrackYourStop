@@ -1,4 +1,3 @@
-import 'package:track_your_stop/constants/colors.dart';
 import 'package:track_your_stop/modules/settings/provider/departure_settings_provider.dart';
 import 'package:track_your_stop/modules/settings/ui/slider_selection.dart';
 import 'package:track_your_stop/utils/app_theme.dart';

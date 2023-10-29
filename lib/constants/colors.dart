@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // GLOBAL
 Color? hint = Colors.grey[600];
+Color themeSeed = const Color(0xFF2196F3);
 
 // DARK THEME
 Color primaryColorDark = const Color(0xFF9ECAFF);
