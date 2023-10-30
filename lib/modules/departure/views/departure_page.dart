@@ -4,6 +4,7 @@ import 'package:track_your_stop/modules/settings/provider/departure_settings_pro
 import 'package:track_your_stop/utils/app_theme.dart';
 import 'package:track_your_stop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/constants/colors.dart';
 import 'package:track_your_stop/constants/departure_card_choices.dart';
@@ -172,8 +173,9 @@ class DeparturePage extends HookConsumerWidget {
                   final Map<String, List<DepartureResponse>> stationMap =
                       Map.from(snapshot.data);
                   if (stationMap.isEmpty) {
-                    return const Center(
-                        child: Text("No stations defined yet."));
+                    return Center(
+                        child: Text(
+                            AppLocalizations.of(context)!.departureEmptyText));
                   }
                   return buildListView(context, stationMap);
                 }

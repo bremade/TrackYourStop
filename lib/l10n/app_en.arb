@@ -1,0 +1,21 @@
+{
+  "bottomBarDepartures": "Departures",
+  "bottomBarNews": "News",
+  "bottomBarSettings": "Settings",
+  "departureEmptyText": "No stations defined yet.",
+  "dialogDone": "Done",
+  "favoriteAppBarAddTooltip": "Add favorite station",
+  "favoriteAppBarTitle": "Add favorite",
+  "favoriteDestinationSelection": "Select preferred destinations:",
+  "favoriteOriginSelectionError": "No station found for provided name.",
+  "favoriteOriginSelectionLabel": "Name of the origin station",
+  "favoriteTransportationFilterWait": "No transport types found yet.",
+  "favoriteTransportationTypeFilter": "Filter for type of transportation",
+  "settingsDepartureCountDescription": "Defines how manydeparture items per destination are displayed on the start screen.",
+  "settingsDepartureCountSliderTitle": "Departure count",
+  "settingsDepartureCountTitle": "Departure Count",
+  "settingsLanguageTitle": "Language",
+  "settingsSectionCommon": "Common",
+  "settingsSectionDeparture": "Departures",
+  "settingsThemeSwitchTitle": "Switch Theme"
+}

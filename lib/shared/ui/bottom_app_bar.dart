@@ -1,6 +1,7 @@
 import 'package:track_your_stop/routing/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/utils/logger.dart';
 import 'package:track_your_stop/shared/provider/app_bar_selection_provider.dart';
@@ -35,18 +36,18 @@ class BottomAppNavigationBar extends ConsumerWidget {
     final currentIndex = ref.watch(appBarSelectionProvider);
     logger.d("Current Index: $currentIndex");
     return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
+      items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.train),
-          label: 'Departures',
+          icon: const Icon(Icons.train),
+          label: AppLocalizations.of(context)!.bottomBarDepartures,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.newspaper),
-          label: 'News',
+          icon: const Icon(Icons.newspaper),
+          label: AppLocalizations.of(context)!.bottomBarNews,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
+          icon: const Icon(Icons.settings),
+          label: AppLocalizations.of(context)!.bottomBarSettings,
         ),
       ],
       currentIndex: currentIndex,
