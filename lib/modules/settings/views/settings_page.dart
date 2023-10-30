@@ -56,11 +56,12 @@ class SettingsPage extends HookConsumerWidget {
             SettingsSection(
               title: Text(AppLocalizations.of(context)!.settingsSectionCommon),
               tiles: <SettingsTile>[
-                SettingsTile.navigation(
+                SettingsTile(
                   leading: const Icon(Icons.language),
                   title:
                       Text(AppLocalizations.of(context)!.settingsLanguageTitle),
-                  value: const Text("English"),
+                  value:
+                      Text(AppLocalizations.of(context)!.settingsLanguageValue),
                 ),
                 SettingsTile.switchTile(
                   activeSwitchColor:
