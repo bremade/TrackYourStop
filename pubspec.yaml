@@ -16,7 +16,7 @@ dependencies:
   # Logging
   logger: ^1.1.0
   # Date formatting
-  intl: ^0.18.0
+  intl: any
   # State management
   hooks_riverpod: ^2.3.8
   # Routing
@@ -33,6 +33,8 @@ dependencies:
   settings_ui: ^2.0.2
   # UI Image bubbles
   flutter_image_stack: ^0.0.6
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   # Testing
@@ -53,6 +55,7 @@ dev_dependencies:
 
 # Flutter related packages
 flutter:
+  generate: true
   # Enable material design
   uses-material-design: true
   # Add assets

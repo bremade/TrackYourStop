@@ -1,11 +1,12 @@
-import 'package:track_your_stop/modules/settings/provider/departure_settings_provider.dart';
-import 'package:track_your_stop/modules/settings/ui/slider_selection.dart';
-import 'package:track_your_stop/utils/app_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:settings_ui/settings_ui.dart';
-import 'package:track_your_stop/shared/ui/bottom_app_bar.dart';
-import 'package:track_your_stop/utils/logger.dart';
+import "package:track_your_stop/modules/settings/provider/departure_settings_provider.dart";
+import "package:track_your_stop/modules/settings/ui/slider_selection.dart";
+import "package:track_your_stop/utils/app_theme.dart";
+import "package:flutter/material.dart";
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
+import "package:hooks_riverpod/hooks_riverpod.dart";
+import "package:settings_ui/settings_ui.dart";
+import "package:track_your_stop/shared/ui/bottom_app_bar.dart";
+import "package:track_your_stop/utils/logger.dart";
 
 final logger = getLogger("SettingsPage");
 
@@ -23,7 +24,8 @@ class SettingsPage extends HookConsumerWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Departure count'),
+            title: Text(AppLocalizations.of(context)!
+                .settingsDepartureCountSliderTitle),
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
@@ -36,7 +38,7 @@ class SettingsPage extends HookConsumerWidget {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: const Text('Done'),
+                child: Text(AppLocalizations.of(context)!.dialogDone),
               ),
             ],
           );
@@ -52,12 +54,14 @@ class SettingsPage extends HookConsumerWidget {
           lightTheme: lightSettings,
           sections: [
             SettingsSection(
-              title: const Text('Common'),
+              title: Text(AppLocalizations.of(context)!.settingsSectionCommon),
               tiles: <SettingsTile>[
-                SettingsTile.navigation(
+                SettingsTile(
                   leading: const Icon(Icons.language),
-                  title: const Text('Language'),
-                  value: const Text('English'),
+                  title:
+                      Text(AppLocalizations.of(context)!.settingsLanguageTitle),
+                  value:
+                      Text(AppLocalizations.of(context)!.settingsLanguageValue),
                 ),
                 SettingsTile.switchTile(
                   activeSwitchColor:
@@ -65,17 +69,20 @@ class SettingsPage extends HookConsumerWidget {
                   onToggle: (isActive) => _switchTheme(ref, isActive),
                   initialValue: isDark,
                   leading: Icon(isDark ? Icons.brightness_2 : Icons.wb_sunny),
-                  title: const Text('Switch Theme'),
+                  title: Text(
+                      AppLocalizations.of(context)!.settingsThemeSwitchTitle),
                 ),
               ],
             ),
             SettingsSection(
-              title: const Text('Departures'),
+              title:
+                  Text(AppLocalizations.of(context)!.settingsSectionDeparture),
               tiles: <SettingsTile>[
                 SettingsTile(
-                  title: const Text('Departure Count'),
-                  description: const Text(
-                      'Defines how manydeparture items per destination are displayed on the start screen.'),
+                  title: Text(AppLocalizations.of(context)!
+                      .settingsDepartureCountTitle),
+                  description: Text(AppLocalizations.of(context)!
+                      .settingsDepartureCountDescription),
                   value: Text(ref.watch(departureSettingsProvider).toString()),
                   leading: const Icon(Icons.train),
                   onPressed: (BuildContext context) {

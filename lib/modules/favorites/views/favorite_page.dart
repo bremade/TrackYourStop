@@ -1,6 +1,7 @@
 import 'package:track_your_stop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -87,11 +88,11 @@ class FavoritePage extends HookConsumerWidget {
                 Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: TypeAheadField<StationResponse?>(
-                      noItemsFoundBuilder: (context) => const SizedBox(
+                      noItemsFoundBuilder: (context) => SizedBox(
                           height: 50.0,
                           child: Center(
-                              child:
-                                  Text('No station found for provided name.'))),
+                              child: Text(AppLocalizations.of(context)!
+                                  .favoriteOriginSelectionError))),
                       hideSuggestionsOnKeyboardHide: false,
                       hideKeyboardOnDrag: true,
                       debounceDuration: const Duration(milliseconds: 1000),
@@ -119,10 +120,11 @@ class FavoritePage extends HookConsumerWidget {
                       },
                       textFieldConfiguration: TextFieldConfiguration(
                           controller: ref.watch(stationControllerProvider),
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            prefixIcon: Icon(Icons.search),
-                            labelText: 'Name of the origin station',
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            prefixIcon: const Icon(Icons.search),
+                            labelText: AppLocalizations.of(context)!
+                                .favoriteOriginSelectionLabel,
                           )),
                       onSuggestionSelected: (StationResponse? selection) {
                         logger.d('Selected station: ${selection!.toJson()}');
@@ -143,10 +145,11 @@ class FavoritePage extends HookConsumerWidget {
                 Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: TypeAheadField<String>(
-                        noItemsFoundBuilder: (context) => const SizedBox(
+                        noItemsFoundBuilder: (context) => SizedBox(
                             height: 50.0,
                             child: Center(
-                                child: Text('No transport types found yet.'))),
+                                child: Text(AppLocalizations.of(context)!
+                                    .favoriteTransportationFilterWait))),
                         hideSuggestionsOnKeyboardHide: false,
                         hideKeyboardOnDrag: true,
                         suggestionsCallback: (input) {
@@ -186,10 +189,11 @@ class FavoritePage extends HookConsumerWidget {
                         },
                         textFieldConfiguration: TextFieldConfiguration(
                             controller: transportationTypeController,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              prefixIcon: Icon(Icons.train),
-                              labelText: 'Filter for type of transportation',
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(),
+                              prefixIcon: const Icon(Icons.train),
+                              labelText: AppLocalizations.of(context)!
+                                  .favoriteTransportationTypeFilter,
                             )))),
                 // Chip list containing selected transportation types
                 Container(
@@ -205,7 +209,7 @@ class FavoritePage extends HookConsumerWidget {
                 Align(
                   alignment: AlignmentDirectional.center,
                   child: Text(
-                    'Select preferred destinations:',
+                    AppLocalizations.of(context)!.favoriteDestinationSelection,
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.start,
                   ),
@@ -268,7 +272,8 @@ class FavoritePage extends HookConsumerWidget {
     return Scaffold(
       appBar: FavoriteAppBar(),
       body: Scrollable(
-        viewportBuilder: (BuildContext context, ViewportOffset position) => buildBody(),
+        viewportBuilder: (BuildContext context, ViewportOffset position) =>
+            buildBody(),
       ),
     );
   }

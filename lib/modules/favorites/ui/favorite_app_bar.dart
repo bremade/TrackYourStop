@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/modules/favorites/database/favorites_database.dart';
 import 'package:track_your_stop/modules/favorites/models/favorite.model.dart';
@@ -31,7 +32,7 @@ class FavoriteAppBar extends ConsumerWidget implements PreferredSizeWidget {
     }
 
     return AppBar(
-      title: const Text('Add favorite'),
+      title: Text(AppLocalizations.of(context)!.favoriteAppBarTitle),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
@@ -41,7 +42,7 @@ class FavoriteAppBar extends ConsumerWidget implements PreferredSizeWidget {
       actions: <Widget>[
         IconButton(
           icon: const Icon(Icons.add_location),
-          tooltip: 'Add favorite station',
+          tooltip: AppLocalizations.of(context)!.favoriteAppBarAddTooltip,
           onPressed: () {
             final selectedOrigin = ref.watch(selectedOriginProvider);
             final selectedTransportationTypes =

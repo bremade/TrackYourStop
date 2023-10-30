@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:track_your_stop/routing/router.dart';
@@ -70,7 +71,9 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp>
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Haltestellen Tracker',
+      title: "TrackYourStop",
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       themeMode: ref.watch(themeProvider),
       darkTheme: darkTheme,

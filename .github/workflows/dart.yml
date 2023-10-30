@@ -25,7 +25,10 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: "stable"
-      - run: flutter pub get
+      - name: Get flutter packages
+        run: flutter pub get
+      - name: Generate localization
+        run: flutter gen-l10n
       - name: Analyze project source
         run: dart analyze
       - name: Run tests
