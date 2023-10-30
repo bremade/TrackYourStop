@@ -28,7 +28,7 @@ dependencies:
   # Http requests
   http: ^0.13.6
   # List builder for http requests
-  flutter_typeahead: ^4.1.1
+  flutter_typeahead: ^4.8.0
   # Settings ui framework
   settings_ui: ^2.0.2
   # UI Image bubbles
