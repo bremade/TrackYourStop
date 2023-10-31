@@ -17,7 +17,10 @@
   "settingsDepartureCountTitle": "Anzahl der Abfahrten",
   "settingsLanguageTitle": "Sprache",
   "settingsLanguageValue": "Deutsch",
+  "settingsNewsFilterTitle": "Neuigkeiten Filtern",
+  "settingsNewsFilterDescription": "Legt fest, ob nur die Neuigkeiten für deine gespeicherten Linien angezeigt werden sollen.",
   "settingsSectionCommon": "Allgemein",
   "settingsSectionDeparture": "Abfahrten",
+  "settingsSectionNews": "Neuigkeiten",
   "settingsThemeSwitchTitle": "Farbschema Wechseln"
 }

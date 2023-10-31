@@ -1,4 +1,5 @@
 import "package:track_your_stop/modules/settings/provider/departure_settings_provider.dart";
+import "package:track_your_stop/modules/settings/provider/news_settings_provider.dart";
 import "package:track_your_stop/modules/settings/ui/slider_selection.dart";
 import "package:track_your_stop/utils/app_theme.dart";
 import "package:flutter/material.dart";
@@ -47,6 +48,7 @@ class SettingsPage extends HookConsumerWidget {
 
   Widget _buildSettings(BuildContext context, WidgetRef ref) {
     final bool isDark = ref.watch(themeProvider) == ThemeMode.dark;
+    final bool isNewsFiltered = ref.watch(newsSettingsProvider);
     return Padding(
         padding: const EdgeInsets.only(top: 20),
         child: SettingsList(
@@ -88,6 +90,25 @@ class SettingsPage extends HookConsumerWidget {
                   onPressed: (BuildContext context) {
                     _showSliderDialog(context, ref);
                   },
+                ),
+              ],
+            ),
+            SettingsSection(
+              title: Text(AppLocalizations.of(context)!.settingsSectionNews),
+              tiles: <SettingsTile>[
+                SettingsTile.switchTile(
+                  activeSwitchColor:
+                      Theme.of(context).toggleButtonsTheme.selectedColor,
+                  onToggle: (isActive) {
+                    ref.watch(newsSettingsProvider.notifier).state = isActive;
+                    logger.d("News Filter: $isActive");
+                  },
+                  initialValue: isNewsFiltered,
+                  leading: const Icon(Icons.filter),
+                  title: Text(
+                      AppLocalizations.of(context)!.settingsNewsFilterTitle),
+                  description: Text(AppLocalizations.of(context)!
+                      .settingsNewsFilterDescription),
                 ),
               ],
             ),

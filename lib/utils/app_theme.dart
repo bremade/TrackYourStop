@@ -79,7 +79,8 @@ ThemeData lightTheme = ThemeData(
       labelPadding: const EdgeInsets.only(left: 0, right: 0),
       side: const BorderSide(style: BorderStyle.none),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-    ));
+    ),
+    toggleButtonsTheme: ToggleButtonsThemeData(selectedColor: primaryColor));
 
 SettingsThemeData lightSettings = SettingsThemeData(
     settingsListBackground: backgroundColor,

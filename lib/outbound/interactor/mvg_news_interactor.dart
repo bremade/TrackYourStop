@@ -9,12 +9,13 @@ final logger = getLogger("MvgInteractor");
 class MvgNewsInteractor {
   static const baseUri = "https://www.mvg.de/api";
 
-  static Future<List<NewsResponse>> fetchNews() async {
+  static Future<List<NewsResponse>> fetchNews({all = false}) async {
     final response = await http.get(Uri.parse('$baseUri/ems/tickers'));
     if (response.statusCode == 200) {
       final newsData = (json.decode(response.body) as List)
           .map((newsData) => NewsResponse.fromJson(newsData))
-          .where((newsDataObject) => newsDataObject.type == 'DISRUPTION')
+          .where((newsDataObject) =>
+              all ? true : newsDataObject.type == 'DISRUPTION')
           .toList();
 
       return newsData;

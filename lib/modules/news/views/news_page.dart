@@ -3,6 +3,7 @@ import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/constants/colors.dart';
+import 'package:track_your_stop/modules/news/provider/news_list_provider.dart';
 import 'package:track_your_stop/outbound/interactor/mvg_news_interactor.dart';
 import 'package:track_your_stop/outbound/models/news_line.dart';
 import 'package:track_your_stop/outbound/models/news_response.dart';
@@ -93,14 +94,7 @@ class NewsPage extends HookConsumerWidget {
     }
 
     Widget buildBody() {
-      // Build list of news
-      final Future<List<NewsResponse>> news =
-          MvgNewsInteractor.fetchNews().then((value) {
-        for (var element in value) {
-          logger.i(element.toJson());
-        }
-        return value;
-      });
+      final Future<List<NewsResponse>> news = ref.watch(newsListProvider);
       return FutureBuilder(
           future: news,
           builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -128,8 +122,9 @@ class NewsPage extends HookConsumerWidget {
       body: RefreshIndicator(
         child: buildBody(),
         onRefresh: () {
-          throw UnimplementedError();
-          // Refresh news from API
+          // Refresh news provider and therefore main view data
+          return ref.read(newsListProvider.notifier).state =
+              MvgNewsInteractor.fetchNews();
         },
       ),
       bottomNavigationBar: BottomAppNavigationBar(),

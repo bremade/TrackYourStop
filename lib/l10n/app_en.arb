@@ -17,7 +17,10 @@
   "settingsDepartureCountTitle": "Departure Count",
   "settingsLanguageTitle": "Language",
   "settingsLanguageValue": "English",
+  "settingsNewsFilterTitle": "Filter News",
+  "settingsNewsFilterDescription": "Defines whether only the news for your saved lines should be displayed.",
   "settingsSectionCommon": "Common",
   "settingsSectionDeparture": "Departures",
+  "settingsSectionNews": "News",
   "settingsThemeSwitchTitle": "Switch Theme"
 }
