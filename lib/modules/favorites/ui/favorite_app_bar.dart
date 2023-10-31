@@ -57,7 +57,8 @@ class FavoriteAppBar extends ConsumerWidget implements PreferredSizeWidget {
                     types: convertArrayToString(selectedTransportationTypes),
                     origin: selectedOrigin!.name,
                     originGlobalId: selectedOrigin.globalId,
-                    destination: destination))
+                    destination: destination,
+                    labels: selectedDestinations.map((e) => e.label).join(",")))
                 .toList();
             FavoritesDatabase.instance.createFavoritesInBatch(toCreate);
 

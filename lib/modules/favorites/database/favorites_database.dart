@@ -29,7 +29,8 @@ CREATE TABLE $tableFavorite (
   ${FavoriteFields.types} $textType,
   ${FavoriteFields.origin} $textType,
   ${FavoriteFields.originGlobalId} $textType,
-  ${FavoriteFields.destination} $textType
+  ${FavoriteFields.destination} $textType,
+  ${FavoriteFields.labels} $textType
 )''');
   }
 

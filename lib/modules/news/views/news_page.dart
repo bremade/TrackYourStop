@@ -123,8 +123,7 @@ class NewsPage extends HookConsumerWidget {
         child: buildBody(),
         onRefresh: () {
           // Refresh news provider and therefore main view data
-          return ref.read(newsListProvider.notifier).state =
-              MvgNewsInteractor.fetchNews();
+          return ref.refresh(newsListProvider);
         },
       ),
       bottomNavigationBar: BottomAppNavigationBar(),
