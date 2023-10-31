@@ -15,19 +15,16 @@ class BottomAppNavigationBar extends ConsumerWidget {
 
   final pageMap = {
     0: const DepartureRoute(),
-    1: const DepartureRoute(),
+    1: const NewsRoute(),
     2: const SettingsRoute()
   };
 
   void _onIndexChange(BuildContext context, WidgetRef ref, int currentIndex,
       int selectedIndex) {
     if (currentIndex != selectedIndex) {
-      // TODO: Remove this after implementation of news page
-      if (selectedIndex != 1) {
-        ref.read(appBarSelectionProvider.notifier).state = selectedIndex;
-        final router = AutoRouter.of(context);
-        router.push(pageMap[selectedIndex] ?? const DepartureRoute());
-      }
+      ref.read(appBarSelectionProvider.notifier).state = selectedIndex;
+      final router = AutoRouter.of(context);
+      router.push(pageMap[selectedIndex] ?? const DepartureRoute());
     }
   }
 

@@ -11,6 +11,7 @@
   "favoriteOriginSelectionLabel": "Name of the origin station",
   "favoriteTransportationFilterWait": "No transport types found yet.",
   "favoriteTransportationTypeFilter": "Filter for type of transportation",
+  "newsEmptyText": "No relevant news were found.",
   "settingsDepartureCountDescription": "Defines how manydeparture items per destination are displayed on the start screen.",
   "settingsDepartureCountSliderTitle": "Departure count",
   "settingsDepartureCountTitle": "Departure Count",

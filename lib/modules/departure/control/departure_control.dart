@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:track_your_stop/modules/favorites/models/favorite.model.dart';
-import 'package:track_your_stop/outbound/interactor/mvg_interactor.dart';
+import 'package:track_your_stop/outbound/interactor/mvg_departure_interactor.dart';
 import 'package:track_your_stop/outbound/models/departure_response.dart';
 import 'package:track_your_stop/utils/logger.dart';
 import 'package:track_your_stop/utils/string.util.dart';
@@ -13,11 +13,12 @@ Future<HashMap<String, List<DepartureResponse>>> buildStationMap(
   final HashMap<String, List<DepartureResponse>> stationMap = HashMap();
   var favoriteData = await favorites;
   for (Favorite favorite in favoriteData) {
-    List<DepartureResponse> departureData = await MvgInteractor.fetchDepartures(
-        favorite.originGlobalId,
-        convertStringToArray(favorite.types),
-        favorite.destination,
-        departureCountSetting);
+    List<DepartureResponse> departureData =
+        await MvgDepartureInteractor.fetchDepartures(
+            favorite.originGlobalId,
+            convertStringToArray(favorite.types),
+            favorite.destination,
+            departureCountSetting);
     if (departureData.isNotEmpty) {
       if (stationMap.containsKey(favorite.origin) &&
           stationMap[favorite.origin] != null) {

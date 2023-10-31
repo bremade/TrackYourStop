@@ -10,7 +10,7 @@ import 'package:track_your_stop/utils/string.util.dart';
 
 final logger = getLogger("MvgInteractor");
 
-class MvgInteractor {
+class MvgDepartureInteractor {
   static const baseUri = "https://www.mvg.de/api/fib/v2";
 
   static Future<List<DepartureResponse>> fetchDepartures(
