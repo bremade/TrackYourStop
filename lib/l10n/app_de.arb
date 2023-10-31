@@ -11,12 +11,20 @@
   "favoriteOriginSelectionLabel": "Name der Startstation",
   "favoriteTransportationFilterWait": "Es wurden noch keine Transportarten gefunden.",
   "favoriteTransportationTypeFilter": "Transport-Typ Filter",
+  "newsEmptyText": "Es wurden keine aktuellen Neuigkeiten gefunden.",
+  "newsUrgent": "Aktuell",
+  "newsPlanned": "Geplant",
   "settingsDepartureCountDescription": "Legt fest, wie viele Abfahrtspositionen pro Ziel auf dem Startbildschirm angezeigt werden.",
   "settingsDepartureCountSliderTitle": "Anzahl der Abfahrten",
   "settingsDepartureCountTitle": "Anzahl der Abfahrten",
   "settingsLanguageTitle": "Sprache",
   "settingsLanguageValue": "Deutsch",
+  "settingsNewsFetchAllTitle": "Alle Neuigkeiten anzeigen",
+  "settingsNewsFetchAllDescription": "Legt fest, ob alle Nachrichten, einschließlich geplanter Nachrichten, angezeigt werden sollen.",
+  "settingsNewsFilterTitle": "Neuigkeiten nur für Favoriten",
+  "settingsNewsFilterDescription": "Legt fest, ob nur die Neuigkeiten für deine gespeicherten Linien angezeigt werden sollen.",
   "settingsSectionCommon": "Allgemein",
   "settingsSectionDeparture": "Abfahrten",
-  "settingsThemeSwitchTitle": "Farbschema Wechseln"
+  "settingsSectionNews": "Neuigkeiten",
+  "settingsThemeSwitchTitle": "Farbschema wechseln"
 }

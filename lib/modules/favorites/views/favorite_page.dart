@@ -11,7 +11,7 @@ import 'package:track_your_stop/modules/favorites/provider/selected_origin_provi
 import 'package:track_your_stop/modules/favorites/provider/selected_transportation_types_provider.dart';
 import 'package:track_your_stop/modules/favorites/provider/station_controller_provider.dart';
 import 'package:track_your_stop/modules/favorites/ui/favorite_app_bar.dart';
-import 'package:track_your_stop/outbound/interactor/mvg_interactor.dart';
+import 'package:track_your_stop/outbound/interactor/mvg_departure_interactor.dart';
 import 'package:track_your_stop/outbound/models/departure_response.dart';
 import 'package:track_your_stop/outbound/models/station_response.dart';
 import 'package:track_your_stop/utils/logger.dart';
@@ -59,7 +59,7 @@ class FavoritePage extends HookConsumerWidget {
                 .read(selectedTransportationTypesProvider.notifier)
                 .removeTransportationType(transportType);
             ref.read(polledDeparturesProvider.notifier).state =
-                MvgInteractor.fetchDeparturesByOriginAndTransportTypes(
+                MvgDepartureInteractor.fetchDeparturesByOriginAndTransportTypes(
                     ref.watch(selectedOriginProvider),
                     ref.watch(selectedTransportationTypesProvider));
           },
@@ -96,12 +96,14 @@ class FavoritePage extends HookConsumerWidget {
                       hideSuggestionsOnKeyboardHide: false,
                       hideKeyboardOnDrag: true,
                       debounceDuration: const Duration(milliseconds: 1000),
-                      suggestionsCallback: MvgInteractor.getStationSuggestions,
+                      suggestionsCallback:
+                          MvgDepartureInteractor.getStationSuggestions,
                       itemBuilder: (context, StationResponse? suggestion) {
                         final stationResponse = suggestion!;
                         final List<ImageProvider> transportationTypeAssets =
                             getAssetListForTransportationType(
-                                stationResponse.transportTypes);
+                                stationResponse.transportTypes,
+                                charOnly: true);
                         return ListTile(
                             title: Text(stationResponse.name),
                             leading: ConstrainedBox(
@@ -133,7 +135,7 @@ class FavoritePage extends HookConsumerWidget {
                         ref.watch(stationControllerProvider).text =
                             selection.name;
                         ref.read(polledDeparturesProvider.notifier).state =
-                            MvgInteractor
+                            MvgDepartureInteractor
                                 .fetchDeparturesByOriginAndTransportTypes(
                                     ref.watch(selectedOriginProvider),
                                     TransportationTypeEnum.values
@@ -174,7 +176,7 @@ class FavoritePage extends HookConsumerWidget {
                           ref.watch(stationControllerProvider).text =
                               ref.watch(selectedOriginProvider)!.name;
                           ref.read(polledDeparturesProvider.notifier).state =
-                              MvgInteractor
+                              MvgDepartureInteractor
                                   .fetchDeparturesByOriginAndTransportTypes(
                                       ref.watch(selectedOriginProvider),
                                       ref.watch(

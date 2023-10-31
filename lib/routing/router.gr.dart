@@ -29,6 +29,12 @@ class _$AppRouter extends RootStackRouter {
         child: const FavoritePage(),
       );
     },
+    NewsRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const NewsPage(),
+      );
+    },
     SettingsRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -46,6 +52,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           FavoriteRoute.name,
           path: '/favorite-page',
+        ),
+        RouteConfig(
+          NewsRoute.name,
+          path: '/news-page',
         ),
         RouteConfig(
           SettingsRoute.name,
@@ -76,6 +86,18 @@ class FavoriteRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'FavoriteRoute';
+}
+
+/// generated route for
+/// [NewsPage]
+class NewsRoute extends PageRouteInfo<void> {
+  const NewsRoute()
+      : super(
+          NewsRoute.name,
+          path: '/news-page',
+        );
+
+  static const String name = 'NewsRoute';
 }
 
 /// generated route for
