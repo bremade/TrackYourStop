@@ -14,7 +14,7 @@ dependencies:
   # iOS style icons.
   cupertino_icons: ^1.0.6
   # Logging
-  logger: ^1.1.0
+  logger: ^2.0.2+1
   # Date formatting
   intl: any
   # State management
