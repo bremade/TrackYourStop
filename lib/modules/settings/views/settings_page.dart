@@ -101,11 +101,12 @@ class SettingsPage extends HookConsumerWidget {
                   activeSwitchColor:
                       Theme.of(context).toggleButtonsTheme.selectedColor,
                   onToggle: (isActive) {
-                    ref.watch(newsSettingsFilterProvider.notifier).state = isActive;
+                    ref.watch(newsSettingsFilterProvider.notifier).state =
+                        isActive;
                     logger.d("News Filter: $isActive");
                   },
                   initialValue: isNewsFiltered,
-                  leading: const Icon(Icons.filter),
+                  leading: const Icon(Icons.filter_alt),
                   title: Text(
                       AppLocalizations.of(context)!.settingsNewsFilterTitle),
                   description: Text(AppLocalizations.of(context)!
@@ -115,11 +116,12 @@ class SettingsPage extends HookConsumerWidget {
                   activeSwitchColor:
                       Theme.of(context).toggleButtonsTheme.selectedColor,
                   onToggle: (isActive) {
-                    ref.watch(newsSettingsFetchAllProvider.notifier).state = isActive;
+                    ref.watch(newsSettingsFetchAllProvider.notifier).state =
+                        isActive;
                     logger.d("News fetch all: $isActive");
                   },
                   initialValue: fetchAllNews,
-                  leading: const Icon(Icons.filter),
+                  leading: const Icon(Icons.filter_alt),
                   title: Text(
                       AppLocalizations.of(context)!.settingsNewsFetchAllTitle),
                   description: Text(AppLocalizations.of(context)!

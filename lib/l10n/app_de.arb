@@ -19,12 +19,12 @@
   "settingsDepartureCountTitle": "Anzahl der Abfahrten",
   "settingsLanguageTitle": "Sprache",
   "settingsLanguageValue": "Deutsch",
-  "settingsNewsFilterTitle": "Neuigkeiten Filtern",
-  "settingsNewsFilterDescription": "Legt fest, ob nur die Neuigkeiten für deine gespeicherten Linien angezeigt werden sollen.",
   "settingsNewsFetchAllTitle": "Alle Neuigkeiten anzeigen",
   "settingsNewsFetchAllDescription": "Legt fest, ob alle Nachrichten, einschließlich geplanter Nachrichten, angezeigt werden sollen.",
+  "settingsNewsFilterTitle": "Neuigkeiten nur für Favoriten",
+  "settingsNewsFilterDescription": "Legt fest, ob nur die Neuigkeiten für deine gespeicherten Linien angezeigt werden sollen.",
   "settingsSectionCommon": "Allgemein",
   "settingsSectionDeparture": "Abfahrten",
   "settingsSectionNews": "Neuigkeiten",
-  "settingsThemeSwitchTitle": "Farbschema Wechseln"
+  "settingsThemeSwitchTitle": "Farbschema wechseln"
 }

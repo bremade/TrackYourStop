@@ -15,16 +15,16 @@
   "newsUrgent": "Urgent",
   "newsPlanned": "Planned",
   "settingsDepartureCountDescription": "Defines how manydeparture items per destination are displayed on the start screen.",
-  "settingsDepartureCountSliderTitle": "Departure count",
+  "settingsDepartureCountSliderTitle": "Departure Count",
   "settingsDepartureCountTitle": "Departure Count",
   "settingsLanguageTitle": "Language",
   "settingsLanguageValue": "English",
   "settingsNewsFetchAllTitle": "Show all news",
   "settingsNewsFetchAllDescription": "Defines whether all news including planned news should be displayed.",
-  "settingsNewsFilterTitle": "Filter News",
+  "settingsNewsFilterTitle": "News only for favorites",
   "settingsNewsFilterDescription": "Defines whether only the news for your saved lines should be displayed.",
   "settingsSectionCommon": "Common",
   "settingsSectionDeparture": "Departures",
   "settingsSectionNews": "News",
-  "settingsThemeSwitchTitle": "Switch Theme"
+  "settingsThemeSwitchTitle": "Switch theme"
 }
