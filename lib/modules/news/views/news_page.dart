@@ -4,7 +4,6 @@ import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/constants/colors.dart';
 import 'package:track_your_stop/modules/news/provider/news_list_provider.dart';
-import 'package:track_your_stop/outbound/interactor/mvg_news_interactor.dart';
 import 'package:track_your_stop/outbound/models/news_line.dart';
 import 'package:track_your_stop/outbound/models/news_response.dart';
 import 'package:track_your_stop/shared/ui/bottom_app_bar.dart';
@@ -19,10 +18,14 @@ class NewsPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Card buildCard(String title, List<NewsLine> lines) {
+    Card buildCard(bool urgent, String title, List<NewsLine> lines) {
       final isDarkMode = ref.watch(themeProvider) == ThemeMode.dark;
-      final containerColor =
+      var containerColor =
           isDarkMode ? secondaryContainerColorDark : secondaryContainerColor;
+      if (urgent) {
+        containerColor =
+            isDarkMode ? tertiaryContainerColorDark : tertiaryContainerColor;
+      }
       final textColor = isDarkMode
           ? onSecondaryContainerColorDark
           : onSecondaryContainerColor;
@@ -66,7 +69,9 @@ class NewsPage extends HookConsumerWidget {
                   )),
             ),
             title: Text(
-              title,
+              urgent
+                  ? "${AppLocalizations.of(context)!.newsUrgent}: $title"
+                  : "${AppLocalizations.of(context)!.newsPlanned}: $title",
               style: TextStyle(
                 color: textColor,
                 fontWeight: FontWeight.bold,
@@ -84,7 +89,8 @@ class NewsPage extends HookConsumerWidget {
       List<Widget> newsCards = <Widget>[];
       for (var news in newsList) {
         logger.d(news.toJson());
-        newsCards.add(buildCard(news.title, news.lines));
+        newsCards
+            .add(buildCard(news.type == "DISRUPTION", news.title, news.lines));
       }
       return ListView(
         scrollDirection: Axis.vertical,

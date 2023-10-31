@@ -48,7 +48,8 @@ class SettingsPage extends HookConsumerWidget {
 
   Widget _buildSettings(BuildContext context, WidgetRef ref) {
     final bool isDark = ref.watch(themeProvider) == ThemeMode.dark;
-    final bool isNewsFiltered = ref.watch(newsSettingsProvider);
+    final bool isNewsFiltered = ref.watch(newsSettingsFilterProvider);
+    final bool fetchAllNews = ref.watch(newsSettingsFetchAllProvider);
     return Padding(
         padding: const EdgeInsets.only(top: 20),
         child: SettingsList(
@@ -100,7 +101,7 @@ class SettingsPage extends HookConsumerWidget {
                   activeSwitchColor:
                       Theme.of(context).toggleButtonsTheme.selectedColor,
                   onToggle: (isActive) {
-                    ref.watch(newsSettingsProvider.notifier).state = isActive;
+                    ref.watch(newsSettingsFilterProvider.notifier).state = isActive;
                     logger.d("News Filter: $isActive");
                   },
                   initialValue: isNewsFiltered,
@@ -109,6 +110,20 @@ class SettingsPage extends HookConsumerWidget {
                       AppLocalizations.of(context)!.settingsNewsFilterTitle),
                   description: Text(AppLocalizations.of(context)!
                       .settingsNewsFilterDescription),
+                ),
+                SettingsTile.switchTile(
+                  activeSwitchColor:
+                      Theme.of(context).toggleButtonsTheme.selectedColor,
+                  onToggle: (isActive) {
+                    ref.watch(newsSettingsFetchAllProvider.notifier).state = isActive;
+                    logger.d("News fetch all: $isActive");
+                  },
+                  initialValue: fetchAllNews,
+                  leading: const Icon(Icons.filter),
+                  title: Text(
+                      AppLocalizations.of(context)!.settingsNewsFetchAllTitle),
+                  description: Text(AppLocalizations.of(context)!
+                      .settingsNewsFetchAllDescription),
                 ),
               ],
             ),
