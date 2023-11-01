@@ -1,4 +1,3 @@
-import 'package:track_your_stop/utils/logger.dart';
 import 'package:flutter/material.dart';
 
 var charOnlyPostfix = "CHAR";
@@ -18,19 +17,16 @@ var typeToAssetMap = {
   "BAHNCHAR": "assets/images/bahn.png"
 };
 
-var logger = getLogger("TransportationTypeUtils");
-
 String getAssetForTransportationType(String type) {
   return typeToAssetMap[type] ?? defaultAsset;
 }
 
 List<ImageProvider> getAssetListForTransportationType(Iterable<String> types,
     {bool charOnly = false}) {
-  final List<ImageProvider> assetList = <ImageProvider>[];
-  for (var type in types) {
-    assetList.add(ExactAssetImage(
-        typeToAssetMap[charOnly ? "$type$charOnlyPostfix" : type] ??
-            defaultAsset));
-  }
-  return assetList;
+  return types
+      .map((type) => ExactAssetImage(
+            typeToAssetMap[charOnly ? "$type$charOnlyPostfix" : type] ??
+                defaultAsset,
+          ))
+      .toList();
 }

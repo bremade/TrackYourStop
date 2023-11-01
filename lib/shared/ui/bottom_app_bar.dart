@@ -7,29 +7,23 @@ import 'package:track_your_stop/utils/logger.dart';
 import 'package:track_your_stop/shared/provider/app_bar_selection_provider.dart';
 
 class BottomAppNavigationBar extends ConsumerWidget {
-  BottomAppNavigationBar({
+  const BottomAppNavigationBar({
     Key? key,
   }) : super(key: key);
 
-  final logger = getLogger("BottomAppBar");
-
-  final pageMap = {
-    0: const DepartureRoute(),
-    1: const NewsRoute(),
-    2: const SettingsRoute()
-  };
-
   void _onIndexChange(BuildContext context, WidgetRef ref, int currentIndex,
       int selectedIndex) {
-    if (currentIndex != selectedIndex) {
-      ref.read(appBarSelectionProvider.notifier).state = selectedIndex;
-      final router = AutoRouter.of(context);
-      router.push(pageMap[selectedIndex] ?? const DepartureRoute());
-    }
+    const pageMap = {0: DepartureRoute(), 1: NewsRoute(), 2: SettingsRoute()};
+    if (currentIndex == selectedIndex) return;
+
+    ref.read(appBarSelectionProvider.notifier).state = selectedIndex;
+    final router = AutoRouter.of(context);
+    router.replaceAll([pageMap[selectedIndex] ?? const DepartureRoute()]);
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final logger = getLogger("BottomAppBar");
     final currentIndex = ref.watch(appBarSelectionProvider);
     logger.d("Current Index: $currentIndex");
     return BottomNavigationBar(

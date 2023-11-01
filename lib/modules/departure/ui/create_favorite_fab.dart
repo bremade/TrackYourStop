@@ -12,7 +12,7 @@ class CreateFavoriteFab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = AutoRouter.of(context);
     return FloatingActionButton(
-      onPressed: () => router.push(const FavoriteRoute()),
+      onPressed: () => router.navigate(const FavoriteRoute()),
       child: const Icon(Icons.add),
     );
   }
