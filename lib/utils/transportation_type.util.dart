@@ -26,11 +26,10 @@ String getAssetForTransportationType(String type) {
 
 List<ImageProvider> getAssetListForTransportationType(Iterable<String> types,
     {bool charOnly = false}) {
-  final List<ImageProvider> assetList = <ImageProvider>[];
-  for (var type in types) {
-    assetList.add(ExactAssetImage(
-        typeToAssetMap[charOnly ? "$type$charOnlyPostfix" : type] ??
-            defaultAsset));
-  }
-  return assetList;
+  return types
+      .map((type) => ExactAssetImage(
+            typeToAssetMap[charOnly ? "$type$charOnlyPostfix" : type] ??
+                defaultAsset,
+          ))
+      .toList();
 }

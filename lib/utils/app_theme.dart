@@ -11,62 +11,36 @@ final themeProvider = StateProvider<ThemeMode>((ref) {
               Brightness.dark
           ? ThemeMode.dark
           : ThemeMode.light;
-  setUiStyle(themeMode);
+  _setUiStyle(themeMode);
   return themeMode;
 });
 
-void setUiStyle(final ThemeMode configuredMode) {
+void _setUiStyle(final ThemeMode configuredMode) {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: configuredMode == ThemeMode.dark
-          ? secondaryContainerColorDark
-          : secondaryContainerColor,
+          ? DarkThemeColors.secondaryContainerColor
+          : LightThemeColors.secondaryContainerColor,
       systemNavigationBarColor: configuredMode == ThemeMode.dark
-          ? secondaryContainerColorDark
-          : secondaryContainerColor));
+          ? DarkThemeColors.secondaryContainerColor
+          : LightThemeColors.secondaryContainerColor));
 }
 
-/////////////////////////////////////
-///           Dark Theme          ///
-/////////////////////////////////////
-ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
-    brightness: Brightness.dark,
-    colorScheme:
-        ColorScheme.fromSeed(brightness: Brightness.dark, seedColor: themeSeed),
-    fontFamily: 'WorkSans',
-    appBarTheme: AppBarTheme(
-        titleTextStyle: TextStyle(color: onSecondaryContainerColorDark),
-        color: secondaryContainerColorDark),
-    chipTheme: ChipThemeData(
-      backgroundColor: secondaryContainerColorDark,
-      deleteIconColor: onSecondaryContainerColorDark,
-      elevation: 6.0,
-      padding: const EdgeInsets.only(left: 6.0),
-      labelPadding: const EdgeInsets.only(left: 0, right: 0),
-      side: const BorderSide(style: BorderStyle.none),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-    ),
-    toggleButtonsTheme:
-        ToggleButtonsThemeData(selectedColor: primaryColorDark));
+void switchTheme(WidgetRef ref, bool isActive) {
+  final ThemeMode theme = isActive ? ThemeMode.dark : ThemeMode.light;
+  _setUiStyle(theme);
+  ref.read(themeProvider.notifier).state = theme;
+}
 
-SettingsThemeData darkSettings = SettingsThemeData(
-    settingsListBackground: backgroundColorDark,
-    settingsSectionBackground: secondaryContainerColorDark,
-    trailingTextColor: onSecondaryContainerColorDark,
-    dividerColor: onSecondaryContainerColorDark,
-    tileHighlightColor: onSecondaryContainerColorDark,
-    titleTextColor: onSecondaryContainerColorDark,
-    leadingIconsColor: onSecondaryContainerColorDark,
-    tileDescriptionTextColor: onSecondaryContainerColorDark,
-    settingsTileTextColor: onSecondaryContainerColorDark);
-
-/////////////////////////////////////
-///          Light Theme          ///
-/////////////////////////////////////
-ThemeData lightTheme = ThemeData(
+ThemeData createTheme(
+    Brightness brightness,
+    ColorScheme colorScheme,
+    Color secondaryContainerColor,
+    Color onSecondaryContainerColor,
+    Color primaryColor) {
+  return ThemeData(
     useMaterial3: true,
-    brightness: Brightness.light,
-    colorScheme: ColorScheme.fromSeed(seedColor: themeSeed),
+    brightness: brightness,
+    colorScheme: colorScheme,
     fontFamily: 'WorkSans',
     appBarTheme: AppBarTheme(
         titleTextStyle: TextStyle(color: onSecondaryContainerColor),
@@ -80,15 +54,70 @@ ThemeData lightTheme = ThemeData(
       side: const BorderSide(style: BorderStyle.none),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
     ),
-    toggleButtonsTheme: ToggleButtonsThemeData(selectedColor: primaryColor));
+    toggleButtonsTheme: ToggleButtonsThemeData(selectedColor: primaryColor),
+  );
+}
 
-SettingsThemeData lightSettings = SettingsThemeData(
-    settingsListBackground: backgroundColor,
-    settingsSectionBackground: secondaryContainerColor,
-    trailingTextColor: onSecondaryContainerColor,
-    dividerColor: onSecondaryContainerColor,
-    tileHighlightColor: onSecondaryContainerColor,
-    titleTextColor: onSecondaryContainerColor,
-    leadingIconsColor: onSecondaryContainerColor,
-    tileDescriptionTextColor: onSecondaryContainerColor,
-    settingsTileTextColor: onSecondaryContainerColor);
+SettingsThemeData createSettingsTheme(
+    Color settingsListBackground,
+    Color settingsSectionBackground,
+    Color trailingTextColor,
+    Color dividerColor,
+    Color tileHighlightColor,
+    Color titleTextColor,
+    Color leadingIconsColor,
+    Color tileDescriptionTextColor,
+    Color settingsTileTextColor) {
+  return SettingsThemeData(
+    settingsListBackground: settingsListBackground,
+    settingsSectionBackground: settingsSectionBackground,
+    trailingTextColor: trailingTextColor,
+    dividerColor: dividerColor,
+    tileHighlightColor: tileHighlightColor,
+    titleTextColor: titleTextColor,
+    leadingIconsColor: leadingIconsColor,
+    tileDescriptionTextColor: tileDescriptionTextColor,
+    settingsTileTextColor: settingsTileTextColor,
+  );
+}
+
+/////////////////////////////////////
+///          Light Theme          ///
+/////////////////////////////////////
+ThemeData lightTheme = createTheme(
+    Brightness.light,
+    ColorScheme.fromSeed(seedColor: GlobalColors.themeSeed),
+    LightThemeColors.secondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor,
+    LightThemeColors.primaryColor);
+SettingsThemeData lightSettings = createSettingsTheme(
+    LightThemeColors.backgroundColor,
+    LightThemeColors.secondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor,
+    LightThemeColors.onSecondaryContainerColor);
+
+/////////////////////////////////////
+///           Dark Theme          ///
+/////////////////////////////////////
+ThemeData darkTheme = createTheme(
+    Brightness.dark,
+    ColorScheme.fromSeed(
+        seedColor: GlobalColors.themeSeed, brightness: Brightness.dark),
+    DarkThemeColors.secondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor,
+    DarkThemeColors.primaryColor);
+SettingsThemeData darkSettings = createSettingsTheme(
+    DarkThemeColors.backgroundColor,
+    DarkThemeColors.secondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor,
+    DarkThemeColors.onSecondaryContainerColor);

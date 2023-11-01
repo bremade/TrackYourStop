@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/modules/settings/provider/departure_settings_provider.dart';
 
@@ -43,3 +44,28 @@ class SliderSelectionState extends State<SliderSelection> {
     );
   }
 }
+
+Future showSliderDialog(BuildContext context, WidgetRef ref) => showDialog<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+              AppLocalizations.of(context)!.settingsDepartureCountSliderTitle),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                SliderSelection(ref: ref),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(AppLocalizations.of(context)!.dialogDone),
+            ),
+          ],
+        );
+      },
+    );

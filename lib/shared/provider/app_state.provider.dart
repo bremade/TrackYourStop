@@ -8,6 +8,5 @@ enum AppStateEnum {
   detached,
 }
 
-final appStateProvider = StateProvider<AppStateEnum>((ref) {
-  return AppStateEnum.active;
-});
+final appStateProvider =
+    StateProvider<AppStateEnum>((ref) => AppStateEnum.active);

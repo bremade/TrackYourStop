@@ -17,12 +17,10 @@ class TabNavigationObserver extends AutoRouterObserver {
 
   @override
   Future<void> didChangeTabRoute(
-      TabPageRoute route,
-      TabPageRoute previousRoute,
-      ) async {
-    if (route.name == 'DepartureRoute') {
-      return ref.refresh(favoriteListProvider);
-    }
-    return;
+    TabPageRoute route,
+    TabPageRoute previousRoute,
+  ) async {
+    if (route.name == 'DepartureRoute') return;
+    return ref.refresh(favoriteListProvider);
   }
 }

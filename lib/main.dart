@@ -14,7 +14,7 @@ import 'package:track_your_stop/utils/logger.dart';
 final logger = getLogger("Main");
 final _appRouter = AppRouter();
 
-void main() async {
+void main() {
   Logger.level = Level.debug;
   runApp(const ProviderScope(child: HaltestellenTrackerApp()));
 }
@@ -52,14 +52,15 @@ class HaltestellenTrackerState extends ConsumerState<HaltestellenTrackerApp>
     }
   }
 
-  Future<void> initApp() async {
+  void initApp() {
     WidgetsBinding.instance.addObserver(this);
   }
 
   @override
-  initState() {
+  void initState() {
     super.initState();
-    initApp().then((_) => logger.d("App Init Completed"));
+    initApp();
+    logger.d("App Init Completed");
   }
 
   @override

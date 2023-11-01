@@ -18,56 +18,57 @@ class FavoriteAppBar extends ConsumerWidget implements PreferredSizeWidget {
     Key? key,
   }) : super(key: key);
 
-  final logger = getLogger("BottomAppBar");
+  final logger = getLogger("FavoriteAppBar");
+
+  void exitContext(WidgetRef ref, BuildContext context) {
+    ref.watch(stationControllerProvider).clear();
+    ref.invalidate(selectedDestinationsProvider);
+    ref.invalidate(selectedTransportationTypesProvider);
+    ref.invalidate(selectedOriginProvider);
+    ref.invalidate(polledDeparturesProvider);
+    context.navigateBack();
+  }
+
+  void onAddLocationPressed(WidgetRef ref, BuildContext context) {
+    final selectedOrigin = ref.watch(selectedOriginProvider);
+    final selectedTransportationTypes =
+        ref.watch(selectedTransportationTypesProvider);
+    final selectedDestinations = ref.watch(selectedDestinationsProvider);
+    final selectedDestinationNames =
+        selectedDestinations.map((e) => e.destination).toList();
+
+    List<Favorite> toCreate = selectedDestinationNames
+        .map((String destination) => Favorite(
+            types: convertArrayToString(selectedTransportationTypes),
+            origin: selectedOrigin!.name,
+            originGlobalId: selectedOrigin.globalId,
+            destination: destination,
+            labels: selectedDestinations.map((e) => e.label).join(",")))
+        .toList();
+    FavoritesDatabase.instance.createFavoritesInBatch(toCreate);
+
+    // Refresh favorite provider and therefore main view data
+    ref.read(favoriteListProvider.notifier).state =
+        FavoritesDatabase.instance.readAll();
+    // Delete context when switching back to main view
+    exitContext(ref, context);
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    void exitContext() {
-      ref.watch(stationControllerProvider).clear();
-      ref.invalidate(selectedDestinationsProvider);
-      ref.invalidate(selectedTransportationTypesProvider);
-      ref.invalidate(selectedOriginProvider);
-      ref.invalidate(polledDeparturesProvider);
-      context.navigateBack();
-    }
-
     return AppBar(
       title: Text(AppLocalizations.of(context)!.favoriteAppBarTitle),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
-          exitContext();
+          exitContext(ref, context);
         },
       ),
       actions: <Widget>[
         IconButton(
           icon: const Icon(Icons.add_location),
           tooltip: AppLocalizations.of(context)!.favoriteAppBarAddTooltip,
-          onPressed: () {
-            final selectedOrigin = ref.watch(selectedOriginProvider);
-            final selectedTransportationTypes =
-                ref.watch(selectedTransportationTypesProvider);
-            final selectedDestinations =
-                ref.watch(selectedDestinationsProvider);
-            final selectedDestinationNames =
-                selectedDestinations.map((e) => e.destination).toList();
-
-            List<Favorite> toCreate = selectedDestinationNames
-                .map((String destination) => Favorite(
-                    types: convertArrayToString(selectedTransportationTypes),
-                    origin: selectedOrigin!.name,
-                    originGlobalId: selectedOrigin.globalId,
-                    destination: destination,
-                    labels: selectedDestinations.map((e) => e.label).join(",")))
-                .toList();
-            FavoritesDatabase.instance.createFavoritesInBatch(toCreate);
-
-            // Refresh favorite provider and therefore main view data
-            ref.read(favoriteListProvider.notifier).state =
-                FavoritesDatabase.instance.readAll();
-            // Delete context when switching back to main view
-            exitContext();
-          },
+          onPressed: () => onAddLocationPressed(ref, context),
         ),
       ],
     );

@@ -1,13 +1,10 @@
 import 'dart:collection';
 
+import 'package:track_your_stop/modules/departure/ui/departure_list_view.dart';
 import 'package:track_your_stop/modules/settings/provider/departure_settings_provider.dart';
-import 'package:track_your_stop/utils/app_theme.dart';
-import 'package:track_your_stop/utils/transportation_type.util.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:track_your_stop/constants/colors.dart';
-import 'package:track_your_stop/constants/departure_card_choices.dart';
 import 'package:track_your_stop/modules/departure/control/departure_control.dart';
 import 'package:track_your_stop/modules/favorites/database/favorites_database.dart';
 import 'package:track_your_stop/modules/favorites/models/favorite.model.dart';
@@ -15,7 +12,6 @@ import 'package:track_your_stop/modules/favorites/provider/favorite_list_provide
 import 'package:track_your_stop/modules/departure/ui/create_favorite_fab.dart';
 import 'package:track_your_stop/outbound/models/departure_response.dart';
 import 'package:track_your_stop/shared/ui/bottom_app_bar.dart';
-import 'package:track_your_stop/utils/arrival_accent.util.dart';
 import 'package:track_your_stop/utils/logger.dart';
 
 final logger = getLogger("DeparturePage");
@@ -25,133 +21,6 @@ class DeparturePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    void choiceAction(String choice, String origin, String destination) {
-      switch (choice) {
-        case DepartureCardChoices.remove:
-          FavoritesDatabase.instance.deleteDestination(origin, destination);
-          // Refresh favorite provider and therefore main view data
-          ref.read(favoriteListProvider.notifier).state =
-              FavoritesDatabase.instance.readAll();
-      }
-    }
-
-    Card buildCard(String transportType, String origin, String destination,
-        int arrivalTime) {
-      final isDarkMode = ref.watch(themeProvider) == ThemeMode.dark;
-      final containerColor =
-          isDarkMode ? secondaryContainerColorDark : secondaryContainerColor;
-      final textColor = isDarkMode
-          ? onSecondaryContainerColorDark
-          : onSecondaryContainerColor;
-      final accentColor = getAccentColorForTime(arrivalTime);
-
-      return Card(
-        elevation: 0.0,
-        margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-        child: Container(
-          decoration: BoxDecoration(
-            color: containerColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 10.0,
-            ),
-            leading: Container(
-              height: double.infinity,
-              padding: const EdgeInsets.only(right: 12.0),
-              decoration: BoxDecoration(
-                border: Border(
-                  right: BorderSide(width: 1.5, color: textColor),
-                ),
-              ),
-              child: Image.asset(
-                getAssetForTransportationType(transportType),
-                height: 25,
-                width: 50,
-              ),
-            ),
-            title: Text(
-              destination,
-              style: TextStyle(
-                color: textColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            subtitle: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.linear_scale,
-                  color: accentColor,
-                ),
-                Text(
-                  " $arrivalTime min",
-                  style: TextStyle(color: textColor),
-                ),
-              ],
-            ),
-            trailing: PopupMenuButton(
-              itemBuilder: (BuildContext context) {
-                return DepartureCardChoices.choices.map((String choice) {
-                  return PopupMenuItem(value: choice, child: Text(choice));
-                }).toList();
-              },
-              onSelected: (choice) => choiceAction(choice, origin, destination),
-            ),
-          ),
-        ),
-      );
-    }
-
-    ListView buildListView(
-        BuildContext context, Map<String, List<DepartureResponse>> stationMap) {
-      final List<String> stationNames = stationMap.keys.toList();
-      List<Widget> stationCards = <Widget>[];
-      for (var stationName in stationNames) {
-        final stationDepartures = stationMap[stationName];
-        if (stationDepartures != null) {
-          final List<DepartureResponse> departures = stationDepartures;
-          departures.sort((a, b) =>
-              a.realtimeDepartureTime.compareTo(b.realtimeDepartureTime));
-          stationCards.add(
-            // Add station name as divider
-            Container(
-              padding: const EdgeInsets.only(top: 5.0, left: 20.0),
-              child: Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: Text(
-                  stationName,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  textAlign: TextAlign.start,
-                ),
-              ),
-            ),
-          );
-          for (var stationDeparture in departures) {
-            logger.d(stationDeparture.toJson());
-            stationCards.add(buildCard(
-                stationDeparture.transportType,
-                stationName,
-                stationDeparture.destination,
-                stationDeparture.realtimeDepartureTime));
-          }
-          if (stationName != stationNames.last) {
-            stationCards.add(const Divider(
-              indent: 10.0,
-              endIndent: 10.0,
-              thickness: 2,
-            ));
-          }
-        }
-      }
-      return ListView(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        children: stationCards,
-      );
-    }
-
     Widget buildBody() {
       // Retrieve favorites from database
       Future<List<Favorite>> favorites = ref.watch(favoriteListProvider);
@@ -177,7 +46,7 @@ class DeparturePage extends HookConsumerWidget {
                         child: Text(
                             AppLocalizations.of(context)!.departureEmptyText));
                   }
-                  return buildListView(context, stationMap);
+                  return buildListView(ref, context, stationMap);
                 }
             }
           });
@@ -193,7 +62,7 @@ class DeparturePage extends HookConsumerWidget {
         },
       ),
       floatingActionButton: const CreateFavoriteFab(),
-      bottomNavigationBar: BottomAppNavigationBar(),
+      bottomNavigationBar: const BottomAppNavigationBar(),
     );
   }
 }

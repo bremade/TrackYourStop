@@ -1,17 +1,11 @@
 const String strSeparator = ",";
 
-String convertArrayToString(List<String> array, {String separator = strSeparator}) {
-  String str = "";
-  for (int i = 0; i < array.length; i++) {
-    str = str + array[i];
-    if (i < array.length - 1) {
-      str = str + separator;
-    }
-  }
-  return str;
+String convertArrayToString(List<String> array,
+    {String separator = strSeparator}) {
+  return array.join(separator);
 }
 
-List<String> convertStringToArray(String str, {String separator = strSeparator}) {
-  final List<String> arr = str.split(separator);
-  return arr;
+List<String> convertStringToArray(String str,
+    {String separator = strSeparator}) {
+  return str.split(separator);
 }
