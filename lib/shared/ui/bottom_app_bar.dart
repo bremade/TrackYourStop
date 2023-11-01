@@ -18,7 +18,7 @@ class BottomAppNavigationBar extends ConsumerWidget {
 
     ref.read(appBarSelectionProvider.notifier).state = selectedIndex;
     final router = AutoRouter.of(context);
-    router.push(pageMap[selectedIndex] ?? const DepartureRoute());
+    router.replaceAll([pageMap[selectedIndex] ?? const DepartureRoute()]);
   }
 
   @override

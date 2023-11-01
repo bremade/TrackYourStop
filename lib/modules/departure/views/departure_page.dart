@@ -11,7 +11,6 @@ import 'package:track_your_stop/modules/favorites/models/favorite.model.dart';
 import 'package:track_your_stop/modules/favorites/provider/favorite_list_provider.dart';
 import 'package:track_your_stop/modules/departure/ui/create_favorite_fab.dart';
 import 'package:track_your_stop/outbound/models/departure_response.dart';
-import 'package:track_your_stop/shared/ui/bottom_app_bar.dart';
 
 class DeparturePage extends HookConsumerWidget {
   const DeparturePage({Key? key}) : super(key: key);
@@ -50,16 +49,14 @@ class DeparturePage extends HookConsumerWidget {
     }
 
     return Scaffold(
-      body: RefreshIndicator(
-        child: buildBody(),
-        onRefresh: () {
-          // Refresh favorite provider and therefore main view data
-          return ref.read(favoriteListProvider.notifier).state =
-              FavoritesDatabase.instance.readAll();
-        },
-      ),
-      floatingActionButton: const CreateFavoriteFab(),
-      bottomNavigationBar: const BottomAppNavigationBar(),
-    );
+        body: RefreshIndicator(
+          child: buildBody(),
+          onRefresh: () {
+            // Refresh favorite provider and therefore main view data
+            return ref.read(favoriteListProvider.notifier).state =
+                FavoritesDatabase.instance.readAll();
+          },
+        ),
+        floatingActionButton: const CreateFavoriteFab());
   }
 }

@@ -17,16 +17,16 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    DepartureRoute.name: (routeData) {
+    HomeRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const DeparturePage(),
+        child: const HomePage(),
       );
     },
-    FavoriteRoute.name: (routeData) {
+    DepartureRouter.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const FavoritePage(),
+        child: const EmptyRouterPage(),
       );
     },
     NewsRoute.name: (routeData) {
@@ -41,51 +41,82 @@ class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
+    DepartureRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const DeparturePage(),
+      );
+    },
+    FavoriteRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const FavoritePage(),
+      );
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          DepartureRoute.name,
+          HomeRoute.name,
           path: '/',
-        ),
-        RouteConfig(
-          FavoriteRoute.name,
-          path: '/favorite-page',
-        ),
-        RouteConfig(
-          NewsRoute.name,
-          path: '/news-page',
-        ),
-        RouteConfig(
-          SettingsRoute.name,
-          path: '/settings-page',
-        ),
+          children: [
+            RouteConfig(
+              DepartureRouter.name,
+              path: 'empty-router-page',
+              parent: HomeRoute.name,
+              children: [
+                RouteConfig(
+                  DepartureRoute.name,
+                  path: '',
+                  parent: DepartureRouter.name,
+                ),
+                RouteConfig(
+                  FavoriteRoute.name,
+                  path: 'favorite-page',
+                  parent: DepartureRouter.name,
+                ),
+              ],
+            ),
+            RouteConfig(
+              NewsRoute.name,
+              path: 'news-page',
+              parent: HomeRoute.name,
+            ),
+            RouteConfig(
+              SettingsRoute.name,
+              path: 'settings-page',
+              parent: HomeRoute.name,
+            ),
+          ],
+        )
       ];
 }
 
 /// generated route for
-/// [DeparturePage]
-class DepartureRoute extends PageRouteInfo<void> {
-  const DepartureRoute()
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
       : super(
-          DepartureRoute.name,
+          HomeRoute.name,
           path: '/',
+          initialChildren: children,
         );
 
-  static const String name = 'DepartureRoute';
+  static const String name = 'HomeRoute';
 }
 
 /// generated route for
-/// [FavoritePage]
-class FavoriteRoute extends PageRouteInfo<void> {
-  const FavoriteRoute()
+/// [EmptyRouterPage]
+class DepartureRouter extends PageRouteInfo<void> {
+  const DepartureRouter({List<PageRouteInfo>? children})
       : super(
-          FavoriteRoute.name,
-          path: '/favorite-page',
+          DepartureRouter.name,
+          path: 'empty-router-page',
+          initialChildren: children,
         );
 
-  static const String name = 'FavoriteRoute';
+  static const String name = 'DepartureRouter';
 }
 
 /// generated route for
@@ -94,7 +125,7 @@ class NewsRoute extends PageRouteInfo<void> {
   const NewsRoute()
       : super(
           NewsRoute.name,
-          path: '/news-page',
+          path: 'news-page',
         );
 
   static const String name = 'NewsRoute';
@@ -106,8 +137,32 @@ class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute()
       : super(
           SettingsRoute.name,
-          path: '/settings-page',
+          path: 'settings-page',
         );
 
   static const String name = 'SettingsRoute';
+}
+
+/// generated route for
+/// [DeparturePage]
+class DepartureRoute extends PageRouteInfo<void> {
+  const DepartureRoute()
+      : super(
+          DepartureRoute.name,
+          path: '',
+        );
+
+  static const String name = 'DepartureRoute';
+}
+
+/// generated route for
+/// [FavoritePage]
+class FavoriteRoute extends PageRouteInfo<void> {
+  const FavoriteRoute()
+      : super(
+          FavoriteRoute.name,
+          path: 'favorite-page',
+        );
+
+  static const String name = 'FavoriteRoute';
 }

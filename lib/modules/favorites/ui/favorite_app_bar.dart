@@ -23,7 +23,7 @@ class FavoriteAppBar extends ConsumerWidget implements PreferredSizeWidget {
     ref.invalidate(selectedTransportationTypesProvider);
     ref.invalidate(selectedOriginProvider);
     ref.invalidate(polledDeparturesProvider);
-    context.navigateBack();
+    context.popRoute();
   }
 
   void onAddLocationPressed(WidgetRef ref, BuildContext context) {

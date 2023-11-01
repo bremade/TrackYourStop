@@ -36,14 +36,12 @@ class NewsPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: RefreshIndicator(
-        child: _buildBody(context, ref),
-        onRefresh: () {
-          // Refresh news provider and therefore main view data
-          return ref.refresh(newsListProvider);
-        },
-      ),
-      bottomNavigationBar: const BottomAppNavigationBar(),
-    );
+        body: RefreshIndicator(
+      child: _buildBody(context, ref),
+      onRefresh: () {
+        // Refresh news provider and therefore main view data
+        return ref.refresh(newsListProvider);
+      },
+    ));
   }
 }

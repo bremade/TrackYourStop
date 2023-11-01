@@ -26,10 +26,6 @@ class SettingsPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      extendBody: true,
-      body: _buildSettings(context, ref),
-      bottomNavigationBar: const BottomAppNavigationBar(),
-    );
+    return Scaffold(extendBody: true, body: _buildSettings(context, ref));
   }
 }
