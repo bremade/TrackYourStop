@@ -2,7 +2,7 @@
 TrackYourStop is an open-source project designed to help you easily track the departure times of local public transportation lines and stay updated with current news. Whether you rely on buses, trams, trains, or other forms of public transportation, this application aims to make your commute more convenient.
 
 <p align="center">
-  <img src='https://github.com/bremade/TrackYourStop/assets/26851910/ec852471-cc1e-455d-8b16-7c1347c48d78' width='430'>
+  <img src='assets/github/home_page.png' width='430'>
 </p>
 
 ## Supported Commutes
@@ -46,7 +46,7 @@ Follow these steps to get started with TrackYourStop:
 ### Add favorite
 Choose your preferred public transportation lines by specifying the origin and target so you always see the right connection in one click.
 #### Demo
-![add_favorite_gif](https://github.com/bremade/TrackYourStop/assets/26851910/9325e78f-d4fe-46e0-9545-173532aee880)
+![add_favorite_gif](assets/github/add_favorite.gif)
    
 ### Settings
 #### Common
@@ -58,7 +58,7 @@ Choose your preferred public transportation lines by specifying the origin and t
 - Define if all news including planned issues should be displayed
 - Define if the news should only be displayed that are affecting the lines you defined as a favorite
 #### Demo
-![settings_gif](https://github.com/bremade/TrackYourStop/assets/26851910/58d2d731-3d62-4fe0-8574-5afda93e666f)
+![settings_gif](assets/github/settings.gif)
 
 ## Contributing
 We welcome contributions from the open-source community to make this project even better. To contribute, follow these steps:
