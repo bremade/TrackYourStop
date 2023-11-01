@@ -10,6 +10,7 @@ class StatusInteractor {
 
   static Future<List<StationResponse>> fetchStationData(
       String stationName) async {
+    logger.d('Execution api call for station data.');
     final response =
         await http.get(Uri.parse('$baseUri/location?query=$stationName'));
     if (response.statusCode != 200) return List.empty();
@@ -19,19 +20,14 @@ class StatusInteractor {
   static Future<List<StationResponse>> getStationSuggestions(
       String stationName) async {
     if (stationName == '') return List.empty();
-
-    logger.d('Execution api call for station suggestions.');
+    logger.d('Executing api call for station suggestions.');
     final response =
         await http.get(Uri.parse('$baseUri/location?query=$stationName'));
-
     if (response.statusCode != 200) return List.empty();
-
     final stationList = parseStationResponseSuggestions(response);
-
     for (var element in stationList) {
       logger.d(element.toJson());
     }
-
     return stationList.where((StationResponse option) {
       return option.name.toLowerCase().contains(stationName.toLowerCase());
     }).toList();

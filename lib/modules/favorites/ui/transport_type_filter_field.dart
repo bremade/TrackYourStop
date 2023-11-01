@@ -8,9 +8,6 @@ import 'package:track_your_stop/modules/favorites/provider/selected_origin_provi
 import 'package:track_your_stop/modules/favorites/provider/selected_transportation_types_provider.dart';
 import 'package:track_your_stop/modules/favorites/provider/station_controller_provider.dart';
 import 'package:track_your_stop/outbound/interactor/departure_interactor.dart';
-import 'package:track_your_stop/utils/logger.dart';
-
-final logger = getLogger("TransportationTypeFilterField");
 
 TypeAheadField buildTransportationTypeFilterField(
     WidgetRef ref, BuildContext context) {

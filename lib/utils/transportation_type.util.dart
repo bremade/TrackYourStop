@@ -1,4 +1,3 @@
-import 'package:track_your_stop/utils/logger.dart';
 import 'package:flutter/material.dart';
 
 var charOnlyPostfix = "CHAR";
@@ -17,8 +16,6 @@ var typeToAssetMap = {
   "BAHN": "assets/images/bahn.png",
   "BAHNCHAR": "assets/images/bahn.png"
 };
-
-var logger = getLogger("TransportationTypeUtils");
 
 String getAssetForTransportationType(String type) {
   return typeToAssetMap[type] ?? defaultAsset;

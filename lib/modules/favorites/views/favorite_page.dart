@@ -7,9 +7,6 @@ import 'package:flutter/rendering.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/modules/favorites/ui/favorite_app_bar.dart';
-import 'package:track_your_stop/utils/logger.dart';
-
-final logger = getLogger("FavoritePage");
 
 class FavoritePage extends HookConsumerWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -59,7 +56,7 @@ class FavoritePage extends HookConsumerWidget {
     }
 
     return Scaffold(
-      appBar: FavoriteAppBar(),
+      appBar: const FavoriteAppBar(),
       body: Scrollable(
         viewportBuilder: (BuildContext context, ViewportOffset position) =>
             buildBody(),

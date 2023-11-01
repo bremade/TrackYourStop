@@ -3,9 +3,6 @@ import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import "package:hooks_riverpod/hooks_riverpod.dart";
 import "package:settings_ui/settings_ui.dart";
 import "package:track_your_stop/utils/app_theme.dart";
-import "package:track_your_stop/utils/logger.dart";
-
-final logger = getLogger("CommonSettingsSection");
 
 SettingsSection buildCommonSettingsSection(
     BuildContext context, WidgetRef ref) {

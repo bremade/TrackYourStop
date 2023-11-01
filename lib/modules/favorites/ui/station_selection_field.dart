@@ -11,9 +11,6 @@ import 'package:track_your_stop/modules/favorites/provider/selected_transportati
 import 'package:track_your_stop/modules/favorites/provider/station_controller_provider.dart';
 import 'package:track_your_stop/outbound/interactor/departure_interactor.dart';
 import 'package:track_your_stop/outbound/models/station_response.dart';
-import 'package:track_your_stop/utils/logger.dart';
-
-final logger = getLogger("StationSelectionField");
 
 TypeAheadField buildStationSelectionField(WidgetRef ref, BuildContext context) {
   return TypeAheadField<StationResponse?>(
@@ -55,8 +52,7 @@ TypeAheadField buildStationSelectionField(WidgetRef ref, BuildContext context) {
           labelText: AppLocalizations.of(context)!.favoriteOriginSelectionLabel,
         )),
     onSuggestionSelected: (StationResponse? selection) {
-      logger.d('Selected station: ${selection!.toJson()}');
-      ref.read(selectedOriginProvider.notifier).state = selection;
+      ref.read(selectedOriginProvider.notifier).state = selection!;
       ref.watch(stationControllerProvider).text = selection.name;
       ref.read(polledDeparturesProvider.notifier).state =
           DepartureInteractor.fetchDeparturesByOriginAndTransportTypes(

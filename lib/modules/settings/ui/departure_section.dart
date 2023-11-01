@@ -4,9 +4,6 @@ import "package:hooks_riverpod/hooks_riverpod.dart";
 import "package:settings_ui/settings_ui.dart";
 import "package:track_your_stop/modules/settings/provider/departure_settings_provider.dart";
 import "package:track_your_stop/modules/settings/ui/slider_selection.dart";
-import "package:track_your_stop/utils/logger.dart";
-
-final logger = getLogger("DepartureSettingsSection");
 
 SettingsSection buildDepartureSettingsSection(
     BuildContext context, WidgetRef ref) {

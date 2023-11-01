@@ -12,9 +12,6 @@ import 'package:track_your_stop/modules/favorites/provider/favorite_list_provide
 import 'package:track_your_stop/modules/departure/ui/create_favorite_fab.dart';
 import 'package:track_your_stop/outbound/models/departure_response.dart';
 import 'package:track_your_stop/shared/ui/bottom_app_bar.dart';
-import 'package:track_your_stop/utils/logger.dart';
-
-final logger = getLogger("DeparturePage");
 
 class DeparturePage extends HookConsumerWidget {
   const DeparturePage({Key? key}) : super(key: key);

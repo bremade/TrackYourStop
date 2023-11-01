@@ -18,6 +18,7 @@ class DepartureInteractor {
       final String destination,
       final int departureCountSetting) async {
     final transformedTransportTypes = convertArrayToString(transportTypes);
+    logger.d('Executing api call for departures.');
     final response = await http.get(Uri.parse(
         '$baseUri/departure?globalId=$globalStationId&limit=50&offsetInMinutes=0&transportTypes=$transformedTransportTypes'));
 
@@ -32,6 +33,7 @@ class DepartureInteractor {
           final StationResponse? stationResponse,
           final List<String> transportTypes) async {
     final transformedTransportTypes = convertArrayToString(transportTypes);
+    logger.d('Executing api call for departures for origin and type.');
     final response = await http.get(Uri.parse(
         '$baseUri/departure?globalId=${stationResponse!.globalId}&limit=50&offsetInMinutes=0&transportTypes=$transformedTransportTypes'));
 

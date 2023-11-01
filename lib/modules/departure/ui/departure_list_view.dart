@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/modules/departure/ui/departure_card.dart';
 import 'package:track_your_stop/outbound/models/departure_response.dart';
-import 'package:track_your_stop/utils/transportation_type.util.dart';
 
 ListView buildListView(WidgetRef ref, BuildContext context,
     Map<String, List<DepartureResponse>> stationMap) {
@@ -29,7 +28,6 @@ ListView buildListView(WidgetRef ref, BuildContext context,
         ),
       );
       for (var stationDeparture in departures) {
-        logger.d(stationDeparture.toJson());
         stationCards.add(buildCard(
             ref,
             stationDeparture.transportType,

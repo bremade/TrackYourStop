@@ -3,10 +3,7 @@ import 'dart:collection';
 import 'package:track_your_stop/modules/favorites/models/favorite.model.dart';
 import 'package:track_your_stop/outbound/interactor/departure_interactor.dart';
 import 'package:track_your_stop/outbound/models/departure_response.dart';
-import 'package:track_your_stop/utils/logger.dart';
 import 'package:track_your_stop/utils/string.util.dart';
-
-final logger = getLogger("DepartureControl");
 
 void addDepartureDataToMap(HashMap<String, List<DepartureResponse>> stationMap,
     Favorite favorite, List<DepartureResponse> departureData) {

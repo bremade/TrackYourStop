@@ -10,15 +10,12 @@ import 'package:track_your_stop/modules/favorites/provider/selected_destinations
 import 'package:track_your_stop/modules/favorites/provider/selected_origin_provider.dart';
 import 'package:track_your_stop/modules/favorites/provider/selected_transportation_types_provider.dart';
 import 'package:track_your_stop/modules/favorites/provider/station_controller_provider.dart';
-import 'package:track_your_stop/utils/logger.dart';
 import 'package:track_your_stop/utils/string.util.dart';
 
 class FavoriteAppBar extends ConsumerWidget implements PreferredSizeWidget {
-  FavoriteAppBar({
+  const FavoriteAppBar({
     Key? key,
   }) : super(key: key);
-
-  final logger = getLogger("FavoriteAppBar");
 
   void exitContext(WidgetRef ref, BuildContext context) {
     ref.watch(stationControllerProvider).clear();
