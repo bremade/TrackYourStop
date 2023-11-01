@@ -13,17 +13,6 @@ SettingsSection buildNewsSettingsSection(BuildContext context, WidgetRef ref) {
       SettingsTile.switchTile(
         activeSwitchColor: Theme.of(context).toggleButtonsTheme.selectedColor,
         onToggle: (isActive) {
-          ref.watch(newsSettingsFilterProvider.notifier).state = isActive;
-        },
-        initialValue: isNewsFiltered,
-        leading: const Icon(Icons.filter_alt),
-        title: Text(AppLocalizations.of(context)!.settingsNewsFilterTitle),
-        description:
-            Text(AppLocalizations.of(context)!.settingsNewsFilterDescription),
-      ),
-      SettingsTile.switchTile(
-        activeSwitchColor: Theme.of(context).toggleButtonsTheme.selectedColor,
-        onToggle: (isActive) {
           ref.watch(newsSettingsFetchAllProvider.notifier).state = isActive;
         },
         initialValue: fetchAllNews,
@@ -31,6 +20,17 @@ SettingsSection buildNewsSettingsSection(BuildContext context, WidgetRef ref) {
         title: Text(AppLocalizations.of(context)!.settingsNewsFetchAllTitle),
         description:
             Text(AppLocalizations.of(context)!.settingsNewsFetchAllDescription),
+      ),
+      SettingsTile.switchTile(
+        activeSwitchColor: Theme.of(context).toggleButtonsTheme.selectedColor,
+        onToggle: (isActive) {
+          ref.watch(newsSettingsFilterProvider.notifier).state = isActive;
+        },
+        initialValue: isNewsFiltered,
+        leading: const Icon(Icons.filter_alt),
+        title: Text(AppLocalizations.of(context)!.settingsNewsFilterTitle),
+        description:
+            Text(AppLocalizations.of(context)!.settingsNewsFilterDescription),
       ),
     ],
   );

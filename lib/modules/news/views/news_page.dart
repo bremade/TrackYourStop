@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:track_your_stop/modules/news/provider/news_list_provider.dart';
 import 'package:track_your_stop/modules/news/ui/news_view.dart';
 import 'package:track_your_stop/outbound/models/news_response.dart';
-import 'package:track_your_stop/shared/ui/bottom_app_bar.dart';
 
 class NewsPage extends HookConsumerWidget {
   const NewsPage({Key? key}) : super(key: key);

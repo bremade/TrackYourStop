@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           onTap: tabsRouter.setActiveIndex,
           items: const [
             BottomNavigationBarItem(
-                label: 'Dapartures', icon: Icon(Icons.train)),
+                label: 'Departures', icon: Icon(Icons.train)),
             BottomNavigationBarItem(label: 'News', icon: Icon(Icons.newspaper)),
             BottomNavigationBarItem(
                 label: 'Settings', icon: Icon(Icons.settings)),

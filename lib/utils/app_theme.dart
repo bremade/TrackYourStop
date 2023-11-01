@@ -18,11 +18,11 @@ final themeProvider = StateProvider<ThemeMode>((ref) {
 void _setUiStyle(final ThemeMode configuredMode) {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: configuredMode == ThemeMode.dark
-          ? DarkThemeColors.secondaryContainerColor
-          : LightThemeColors.secondaryContainerColor,
+          ? DarkThemeColors.backgroundColor
+          : LightThemeColors.backgroundColor,
       systemNavigationBarColor: configuredMode == ThemeMode.dark
-          ? DarkThemeColors.secondaryContainerColor
-          : LightThemeColors.secondaryContainerColor));
+          ? DarkThemeColors.backgroundColor
+          : LightThemeColors.backgroundColor));
 }
 
 void switchTheme(WidgetRef ref, bool isActive) {

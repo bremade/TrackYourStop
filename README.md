@@ -1,6 +1,6 @@
 # Track Your Stop
 
-Track your favorite mvv stops.
+Track your favorite public transport stops.
 
 ## Getting Started
 
