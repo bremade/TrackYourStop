@@ -19,6 +19,7 @@ TrackYourStop is an open-source project designed to help you easily track the de
 - **Localizations**: Supports translations for
   - English(default) 100%
   - German 100%
+  - Croatian 100%
 
 ## Getting Started
 Follow these steps to get started with TrackYourStop:
