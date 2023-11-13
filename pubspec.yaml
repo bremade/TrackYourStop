@@ -24,7 +24,7 @@ dependencies:
   # Database storage
   sqflite: ^2.2.8+4
   # Toasts
-  fluttertoast: ^8.2.2
+  fluttertoast: ^8.2.4
   # Http requests
   http: ^0.13.6
   # List builder for http requests
